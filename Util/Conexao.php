@@ -11,10 +11,7 @@ final class Conexao
         if (!isset(self::$instance)) {
             // conexão não existe, então cria
             try {
-                self::$instance = new PDO("jdbc:mysql://localhost:3306/agendeseudente", // url
-                    "root", // usuário
-                    "" // senha
-                );
+                self::$instance = new PDO('mysql:host=localhost;dbname=agendeseudente;charset=utf8', 'root', '');;
                 self::$instance->setAttribute(
                     PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION
                 );
