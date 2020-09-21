@@ -1,4 +1,5 @@
-<?php require 'conecta.php';
+<?php
+require "../../Util/Metodo.php";
 
 $produto_id = isset($_GET['produtoId']) ? $_GET['produtoId'] : null;
 
@@ -14,7 +15,7 @@ include 'header.php';
 
 <h2>Novo Pedido</h2>
 <hr />
-<form action="addPedido.php" method="post">
+<form action="../Controler/addUsuario.php" method="post">
   <span id="valorProduto" style="display: none;"><?= $produto->valor ?></span>
   <!-- area de campos do form -->
   <div class="row">

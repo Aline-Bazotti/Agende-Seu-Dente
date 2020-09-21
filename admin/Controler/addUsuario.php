@@ -1,7 +1,5 @@
 <?php
 
-require_once 'conecta.php';
-
 $produto_id = isset($_POST['produto_id']) ? $_POST['produto_id'] : null;
 $produto_quantidade = isset($_POST['produto_quantidade']) ? $_POST['produto_quantidade'] : null;
 $cliente_nome = isset($_POST['cliente_nome']) ? $_POST['cliente_nome'] : null;

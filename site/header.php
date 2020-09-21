@@ -13,14 +13,16 @@
                     <a class="nav-link" href="site/Institucional/institucionalList.php">Institucional</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Servicos">Serviços</a>
+                    <a class="nav-link" href="site/Servicos/servicosList.php">Serviços</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Agenda">Agenda</a>
                 </li>
             </ul>
             <form class="form-inline mt-2 mt-md-0">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login Paciente</button>
+                <a href="admin/login.php">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" >Login Paciente</button>
+                </a>
             </form>
         </div>
     </nav>

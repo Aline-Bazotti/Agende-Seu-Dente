@@ -199,6 +199,7 @@ CREATE TABLE `institucional` (
   `id` int(10) NOT NULL,
   `desc` varchar(45) NOT NULL COMMENT 'titulo, tipo missão, visão, valor',
   `texto` varchar(255) DEFAULT NULL,
+  imagem varchar(255)DEFAULT NULL COMMENT 'caminho da imagem',
   `status` tinyint(4) NOT NULL COMMENT '1 - Publicado\n0 - Inativo',
   `inicial` tinyint(4) NOT NULL COMMENT '1 - Sim\n0 - Não',
   `slug` varchar(45) DEFAULT NULL,
