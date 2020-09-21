@@ -80,7 +80,9 @@ DROP TABLE IF EXISTS `banner`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `banner` (
   `id` int(10) NOT NULL COMMENT 'Id do banner',
-  `descricao` varchar(20) NOT NULL COMMENT 'Título, descrição, do banner',
+  `titulo` varchar(20) DEFAULT NULL,
+  `descricao` varchar(90) NOT NULL COMMENT 'Título, descrição, do banner',
+  `botao` varchar(20) DEFAULT NULL,
   `imagem` varchar(255) NOT NULL COMMENT 'caminho da imagem do banner, ou link dela, no servidor',
   `ordem` smallint(5) NOT NULL COMMENT 'Ordem que aparece no site',
   `status` smallint(1) NOT NULL COMMENT '1 - Publicado\n0 - Inativo',
@@ -89,7 +91,7 @@ CREATE TABLE `banner` (
   `usu_alt` varchar(35) DEFAULT NULL COMMENT 'Nome do usuário que alterou o cadastro do banner',
   `data_alt` timestamp NULL DEFAULT NULL COMMENT 'Data que houve alteração no cadastro do banner',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Banners cadastrados no site';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Banners cadastrados no site'
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

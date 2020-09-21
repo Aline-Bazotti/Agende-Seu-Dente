@@ -1,12 +1,6 @@
 <?php
 require 'Util/Metodo.php';
-
 $metodo = new Metodo();
-$ano = array(date('Y'));
-
-if(isset($_GET['ano'])){
-    $ano = array($_GET['ano']);
-}
 
 ?>
 <!DOCTYPE html>
@@ -46,8 +40,12 @@ if(isset($_GET['ano'])){
 </head>
 <body>
 <?php
+    include 'site/header.php';
+    include 'site/Banner/bannerList.php';
     include 'site/carousel.php';
+    include 'site/featurette.php';
     include 'site/footer.php';
+
 ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

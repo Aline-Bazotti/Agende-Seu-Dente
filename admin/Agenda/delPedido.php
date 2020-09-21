@@ -13,7 +13,7 @@ $qryData = $PDO->prepare($sql);
 $qryData->bindParam(':id', $id, PDO::PARAM_INT);
 
 if ($qryData->execute()) {
-    header('Location: pedidosForm.php');
+    header('Location: servicosForm.php');
 } else {
     echo "Erro ao remover.";
     var_dump($qryData->errorInfo());
