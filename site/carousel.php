@@ -1,4 +1,4 @@
-<main role="main">
+
 
   <!-- Marketing messaging and featurettes
   ================================================== -->
@@ -29,4 +29,4 @@
     </div><!-- /.row -->
 
   </div><!-- /.container -->
-</main>
+

@@ -1,16 +1,16 @@
 <?php
-$dados = $metodo->buscarTodosBanners();
+$banners = $metodo->buscarTodosBanners();
 ?>
-<main role="main">
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <?php foreach($banners as $banner): ?>
+                <li data-target="#myCarousel" data-slide-to="<?= $banner['id']; ?>" class="active"></li>
+            <?php endforeach; ?>
         </ol>
         <div class="carousel-inner">
-            <?php foreach($dados as $banner): ?>
+            <div class="carousel-item active"></div>
+            <?php foreach($banners as $banner): ?>
             <div class="carousel-item">
                 <img src="<?= $banner['imagem']; ?>" width="1350" height="512">
                 <div class="container">
@@ -36,4 +36,3 @@ $dados = $metodo->buscarTodosBanners();
             <span class="sr-only">Next</span>
         </a>
     </div>
-</main>

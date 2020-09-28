@@ -3,10 +3,20 @@ require '../../Util/Metodo.php';
 $metodo = new Metodo();
 $dados = $metodo->buscarInstitucional();
 
-include '../header.php';
-
 ?>
+    <!DOCTYPE html>
+    <html lang="pt_br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Institucional</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Custom styles for this template -->
+        <link href="../../css/carousel.css" rel="stylesheet">
+    </head>
+<body>
+ <?php include '../header.php'; ?>
     <header>
         <div class="row">
             <div class="col-sm-6">
@@ -31,7 +41,7 @@ include '../header.php';
             <?php endforeach; ?>
         </tbody>
     </table>
-
+</body>
 <?php
 include '../footer.php';
 ?>
