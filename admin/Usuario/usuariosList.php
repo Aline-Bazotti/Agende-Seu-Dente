@@ -2,7 +2,7 @@
 require "../../Util/Metodo.php";
 $metodo = new Metodo();
 $dados = $metodo->buscarUsuarios();
-
+include "../menuLateral.php";
 ?>
 
 <header>
@@ -10,11 +10,9 @@ $dados = $metodo->buscarUsuarios();
 		<div class="col-sm-6">
 			<h2>Usuários</h2>
 		</div>
-		<div class="col-sm-6 text-right h2">
-			<a class="btn btn-default" href="usuariosList.php"><i class="fa fa-refresh"></i> Atualizar</a>
-		</div>
-        <div class="col-sm-6 text-right h2">
-            <a class="btn btn-default" href="usuarioCadastro.php"><i class="fa fa-refresh"></i>Cadastrar</a>
+        <div class="col-sm-6 text-center h2">
+            <a class="btn btn-info" href="usuariosList.php"><i class="fa fa-hourglass"></i> Atualizar</a>
+            <a class="btn btn-success" href="usuarioCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
         </div>
 	</div>
 </header>
@@ -22,7 +20,6 @@ $dados = $metodo->buscarUsuarios();
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th width="2%">#</th>
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Status</th>

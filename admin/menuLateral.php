@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://localhost/Agende-Seu-Dente/admin/Banner/bannersList.php">
                             <i class="fa fa-bookmark"></i>
                             <span>Banners</span>
                         </a>
@@ -85,13 +85,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://localhost/Agende-Seu-Dente/admin/Usuario/usuariosList.php">
                             <i class="fa fa-user"></i>
                             <span>Usuários</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="http://localhost/Agende-Seu-Dente/admin/Grupos/gruposList.php">
                             <i class="fa fa-address-book"></i>
                             <span>Grupos</span>
                         </a>

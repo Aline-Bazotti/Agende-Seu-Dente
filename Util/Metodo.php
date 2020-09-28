@@ -104,4 +104,50 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function addGrupo($grupoId, $grupoNome, $grupoPermissoes){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO grupo(id, nome, permissoes) VALUES (:grupoId, :grupoNome, :grupoPermissoes)");
+            $sql->execute(array(
+                ':grupoId'=>$grupoId,
+                ':grupoNome' => $grupoNome,
+                ':grupoPermissoes' =>$grupoPermissoes));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delGrupo($grupoId){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM grupo WHERE id = :grupoId");
+            $sql->execute(array(
+                ':grupoId'=>$grupoId
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editGrupo($grupoId,$grupoNome,$grupoPermissoes){
+        try {
+            $sql = $this->conexao->prepare("UPDATE grupo SET nome = :grupoNome, permissoes= :grupoPermissoes WHERE id = :grupoId");
+            $sql->execute(array(
+                ':grupoId'=>$grupoId,
+                ':grupoNome' => $grupoNome,
+                ':grupoPermissoes' =>$grupoPermissoes
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarGrupoPorId($grupo_id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from grupo where id = :grupo_id");
+            $sql->execute(array(
+                ':grupo_id'=>$grupo_id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }
