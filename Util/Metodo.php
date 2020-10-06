@@ -150,4 +150,15 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarSite()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from site where id = 1");
+            $sql->execute();
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }

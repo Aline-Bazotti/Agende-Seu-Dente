@@ -7,20 +7,21 @@ $metodo = new Metodo();
 <html lang="pt_br">
     <head>
         <meta charset="UTF-8">
-        <title>Agende Seu Dente - Admin</title>
         <?php
         if(isset($_GET['page'])) {
             $pgAtual = $_GET['page'];
-            echo "<title>ProTatto - ".ucfirst($pgAtual)."</title>";
+            echo "<title>Agende Seu Dente - ".ucfirst($pgAtual)."</title>";
         } else {
-            echo "<title>ProTatto - Home</title>";
+            echo "<title>Agende Seu Dente - Home</title>";
         }
         ?>
     </head>
     <body>
         <link href="../css/menu.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+        <link href="css/menu.css">
+        <link href="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 
         <div class="page-wrapper chiller-theme toggled">
             <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -97,7 +98,7 @@ $metodo = new Metodo();
                                 </a>
                             </li>
                             <li>
-                                <a href="?page=ususriosList">
+                                <a href="?page=usuariosList">
                                     <i class="fa fa-user"></i>
                                     <span>Usuários</span>
                                 </a>
@@ -139,9 +140,12 @@ $metodo = new Metodo();
     </body>
 </html>
     <!-- page-wrapper -->
-    <script src="../js/menu.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js" type="text/javascript"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/main.js"></script>1
+<script src="../js/menu.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js" type="text/javascript"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/main.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+
+
