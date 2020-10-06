@@ -37,7 +37,7 @@ include '../menuLateral.php';
             </div>
             <div class="col-md-12">
                 <button type="submit" class="btn btn-success">Salvar</button>
-                <a href="gruposList.php" class="btn btn-danger">Cancelar</a>
+                <a href="../Pages/gruposList.php" class="btn btn-danger">Cancelar</a>
             </div>
 
     </form>

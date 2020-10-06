@@ -1,6 +1,4 @@
 <?php
-require '../../Util/Metodo.php';
-$metodo = new Metodo();
 $servicos = $metodo->buscarServicos();
 
 ?>
@@ -11,8 +9,7 @@ $servicos = $metodo->buscarServicos();
     <title>Serviços</title>
 </head>
 <body>
-    <?php include '../menuLateral.php'?>
-    <main class="page-content">
+
         <header>
             <div class="row">
                 <div class="col-sm-6">
@@ -37,6 +34,6 @@ $servicos = $metodo->buscarServicos();
             <?php endforeach; ?>
             </tbody>
         </table>
-    </main>
+
 </body>
 </html>

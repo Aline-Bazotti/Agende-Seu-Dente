@@ -12,7 +12,7 @@ include "../menuLateral.php";
         </div>
         <div class="col-sm-6 text-center h2">
             <a class="btn btn-info" href="bannersList.php"><i class="fa fa-hourglass"></i> Atualizar</a>
-            <a class="btn btn-success" href="bannerCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
+            <a class="btn btn-success" href="../Banner/bannerCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
         </div>
     </div>
 </header>
@@ -37,13 +37,13 @@ include "../menuLateral.php";
                 <td><?= $banner['ordem']; ?></td>
                 <td><?= $banner['status']; ?></td>
                 <td class="actions text-left">
-                    <form method="post" action="bannerForm.php">
+                    <form method="post" action="../Banner/bannerForm.php">
                         <input type="hidden" name="grupoId" id="grupoId" value="<?= $banner['id']; ?>">
                         <button class="btn btn-sm btn-warning">
                             <i class="fa fa-edit"></i> Editar
                         </button>
                     </form>
-                    <form method="post" action="Controller/delBanner.php">
+                    <form method="post" action="../Banner/Controller/delBanner.php">
                         <input type="hidden" name="grupoId" id="grupoId" value="<?= $banner['id']; ?>">
                         <button class="btn btn-sm btn-danger">
                             <i class="fa fa-trash"></i> Excluir

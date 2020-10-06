@@ -12,7 +12,7 @@ include "../menuLateral.php";
 		</div>
         <div class="col-sm-6 text-center h2">
             <a class="btn btn-info" href="usuariosList.php"><i class="fa fa-hourglass"></i> Atualizar</a>
-            <a class="btn btn-success" href="usuarioCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
+            <a class="btn btn-success" href="../Usuario/usuarioCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
         </div>
 	</div>
 </header>
