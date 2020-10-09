@@ -1,5 +1,7 @@
 <?php
 require '../Util/Metodo.php';
+require '../vendor/autoload.php';
+$client = getClient();
 $metodo = new Metodo();
 
 ?>
@@ -41,7 +43,7 @@ $metodo = new Metodo();
                                 <span>Geral</span>
                             </li>
                             <li>
-                            <a href="?page=agenda">
+                            <a href="?page=agendaList">
                                 <i class="fa fa-calendar-alt"></i>
                                 <span>Agenda</span>
                             </a>
@@ -145,6 +147,7 @@ $metodo = new Metodo();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.js" type="text/javascript"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/agenda.js"></script>
 <script src="../js/main.js"></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
 

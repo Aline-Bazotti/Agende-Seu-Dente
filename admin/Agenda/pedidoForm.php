@@ -14,7 +14,7 @@ include 'header.php';
 
 <h2>Novo Pedido</h2>
 <hr />
-<form action="addPedido.php" method="post">
+<form action="addEvento.php" method="post">
   <span id="valorProduto" style="display: none;"><?= $produto->valor ?></span>
   <!-- area de campos do form -->
   <div class="row">
