@@ -20,7 +20,11 @@ $metodo = new Metodo();
 <body>
 <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
 <link href="css/carousel.css" rel="stylesheet">
+<link rel="stylesheet" href="css/agenda.css">
 <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
 
 <style>
     .bd-placeholder-img {
@@ -89,10 +93,10 @@ $metodo = new Metodo();
         </div> <!-- /container -->
 </main>
 
-
-?>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
 <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </html>

@@ -1,7 +1,5 @@
 <?php
 require '../Util/Metodo.php';
-require '../vendor/autoload.php';
-$client = getClient();
 $metodo = new Metodo();
 
 ?>

@@ -161,4 +161,23 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas){
+        try {
+            $sql = $this->conexao->prepare("
+            INSERT INTO solicitacao_horario(nome, cpf_cnpj, descricao, data_nascimento, sente_dor, quanto_tempo, gravidez, gravida_sim_semanas) 
+            VALUES (:nome, :cpf_cpnj, :descricao, :data_nascimento, :dor, :quanto_tempo, :gestante, :semanas)");
+            $sql->execute(array(
+                ':nome'=>$nome,
+                ':cpf_cpnj' => $cpf_cpnj,
+                ':descricao' => $desc,
+                ':data_nascimento' =>$data_nascimento,
+                ':dor' => $dor,
+                ':quanto_tempo' => $quanto_tempo,
+                ':gestante' => $gestante,
+                ':semanas' => $semanas
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }
