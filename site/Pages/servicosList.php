@@ -1,6 +1,4 @@
 <?php
-require '../../Util/Metodo.php';
-$metodo = new Metodo();
 $servicos = $metodo->buscarServicos();
 
 ?>
@@ -16,7 +14,6 @@ $servicos = $metodo->buscarServicos();
     <link href="../../css/carousel.css" rel="stylesheet">
 </head>
 <body>
-<?php include '../header.php'; ?>
 <header>
     <div class="row">
         <div class="col-sm-6">
@@ -42,6 +39,3 @@ $servicos = $metodo->buscarServicos();
     </tbody>
 </table>
 </body>
-<?php
-include '../footer.php';
-?>
