@@ -1,8 +1,3 @@
-<?
-if (isset($_POST['mensagem'])){
-    $mensagem = $_POST['mensagem'];
-}
-?>
 <div class="anamnese">
     <br>
     <h3>Agende seu horário</h3>
@@ -10,18 +5,6 @@ if (isset($_POST['mensagem'])){
         <div class="header">
             <h4>Responda o formulário para solicitar agendamento para consulta</h4>
         </div>
-        <?
-        if ($mensagem == 'sucesso'){
-            ?>
-                <p>Sua solicitação foi enviada</p>
-            <?php
-        }
-        else{
-            ?>
-            <p>Sua solicitação não foi enviada, tente novamente mais tarde</p>
-            <?php
-        }
-        ?>
         <div class="questions">
             <form action="../site/Agenda/addEvento.php" method="post">
                 <div class="form-group">

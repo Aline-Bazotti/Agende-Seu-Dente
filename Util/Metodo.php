@@ -180,4 +180,38 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function horarioMarcado($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("UPDATE solicitacao_horario SET marcado = 1 WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarSolicitacaoUsuario()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from solicitacao_horario where marcado = 0");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function apagarHorario($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM solicitacao_horario WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }

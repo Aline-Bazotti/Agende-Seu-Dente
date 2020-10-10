@@ -1,7 +1,0 @@
-{
-    "require": {
-        "google/apiclient": "2.0",
-        "zendframework/zendframework": "^3.0",
-        "zendframework/zend-mvc": "^3.1"
-    }
-}

@@ -13,21 +13,12 @@ $gestante = isset($_POST['gestante']) ? $_POST['gestante'] : null;
 $semanas = isset($_POST['semanas']) ? $_POST['semanas'] : null;
 
 if (empty($nome) || empty($data_nascimento)) {
-    ?>
-    <form action="site/Pages/agendaList.php" method="post">
-        <input name="mensagem" id="mensagem" readonly="readonly" value="falha">
-    </form>
-    <?php
+    echo "Preencha todos os campos";
     exit;
 }
 
 $metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas);
-?>
-<form action="site/Pages/agendaList.php" method="post">
-    <input name="mensagem" id="mensagem" readonly="readonly" value="sucesso">
-</form>
 
-<?php
 header("Location: http://localhost/?page=agendaList");
 ?>
 

@@ -131,7 +131,7 @@ $metodo = new Metodo();
                             include("pages/404.php");
                         }
                     } else {
-                        include("pages/404.php");
+                        include("pages/agendaList.php");
                     }
                     ?>
                 </div> <!-- /container -->

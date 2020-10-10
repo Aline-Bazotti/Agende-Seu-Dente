@@ -2,6 +2,10 @@
 require 'Util/Metodo.php';
 $metodo = new Metodo();
 
+$mensagem = 'oi';
+if (isset($_POST['mensagem'])) {
+    $mensagem = $_POST['mensagem'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt_br">
