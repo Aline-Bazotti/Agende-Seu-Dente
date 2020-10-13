@@ -9,8 +9,8 @@ $dados = $metodo->buscarUsuarios();
 			<h2>Usuários</h2>
 		</div>
         <div class="col-sm-6 text-center h2">
-            <a class="btn btn-info" href="usuariosList.php"><i class="fa fa-hourglass"></i> Atualizar</a>
-            <a class="btn btn-success" href="../Usuario/usuarioCadastro.php"><i class="fa fa-sticky-note"></i>Cadastrar</a>
+            <a class="btn btn-info" href="?page=usuariosList"><i class="fa fa-hourglass"></i> Atualizar</a>
+            <a class="btn btn-success" href="?page=usuarioCadastro"><i class="fa fa-sticky-note"></i>Cadastrar</a>
         </div>
 	</div>
 </header>
@@ -34,12 +34,13 @@ $dados = $metodo->buscarUsuarios();
 					<td><?= $usuario['nome']; ?></td>
 					<td><?= $usuario['status']; ?></td>
 					<td><?= $usuario['email']; ?></td>
-					
-					<td class="actions text-right">
-						<a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-pedido=1 data-id="<?= $usuario['id']; ?>">
-							<i class="fa fa-trash"></i> Excluir
-						</a>
-					</td>
+
+                    <td class="actions text-left">
+                        <a class="btn btn-sm btn-warning" href="?page=usuarioForm&usuarioId=<?= $usuario['id']; ?>">
+                            <i class="fa fa-edit"></i>Editar</a>
+                        <a class="btn btn-sm btn-danger" href="../admin/Usuario/Controller/delUsuario.php?grupoId=<?= $grupo['id']; ?>">
+                            <i class="fa fa-trash"></i> Excluir</a>
+                    </td>
 				</tr>
             <?php endforeach; ?>
 		<?php } else { ?>

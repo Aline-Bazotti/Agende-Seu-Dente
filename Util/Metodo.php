@@ -214,4 +214,38 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function addUsuario($nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$senha,$grupo){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO usuario(cpf,nome,data_nascimento,cro,telefone,telefone_s,status,email,senha,assinatura, id_grupo) VALUES 
+            (:cpf, :nome, :data_nascimento, :cro,:telefone,:telefone_s,:status,:email,:senha,:assinatura, :id_grupo)");
+            $sql->execute(array(
+                ':cpf'=>$cpf_cpnj,
+                ':nome' => $nome,
+                ':data_nascimento' =>$data_nasc,
+                ':cro' => $cro,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':status' => $status,
+                ':email' => $email,
+                ':senha' =>$senha,
+                ':assinatura' => $assinatura,
+                ':id_grupo' => $grupo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarUsuarioPorId($usuario_id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from usuario where id = :usuario_id");
+            $sql->execute(array(
+                ':usuario_id'=>$usuario_id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }
