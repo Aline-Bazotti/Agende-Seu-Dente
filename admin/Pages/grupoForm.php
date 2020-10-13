@@ -1,8 +1,6 @@
 <?php
-require "../../Util/Metodo.php";
-$metodo = new Metodo();
 
-$grupo_id = isset($_POST['grupoId']) ? $_POST['grupoId'] : null;
+$grupo_id = isset($_GET['grupoId']) ? $_GET['grupoId'] : null;
 
 if (empty($grupo_id)) {
     echo "Pedido inválido.";
@@ -10,12 +8,11 @@ if (empty($grupo_id)) {
 }
 $grupo = $metodo->buscarGrupoPorId($grupo_id);
 
-include '../menuLateral.php';
 ?>
 
     <h2>Editar Grupo - <?= $grupo['nome'] ?></h2>
     <hr />
-    <form action="../Controler/editGrupo.php" method="post">
+    <form action="../admin/Grupos/Controller/editGrupo.php" method="post">
         <input type="hidden" name="grupoId" value="<?= $grupo['id'] ?>">
             <div>
                 <label class="desc" for="Name">Nome*</label>
@@ -37,7 +34,7 @@ include '../menuLateral.php';
             </div>
             <div class="col-md-12">
                 <button type="submit" class="btn btn-success">Salvar</button>
-                <a href="../Pages/gruposList.php" class="btn btn-danger">Cancelar</a>
+                <a href="?page=gruposList" class="btn btn-danger">Cancelar</a>
             </div>
 
     </form>

@@ -13,6 +13,6 @@ if (empty($grupo_id) || empty($grupo_nome) ||  empty($grupo_permissao)) {
 
 $metodo->addGrupo($grupo_id,$grupo_nome,$grupo_permissao);
 
-header("Location: ../../admin/?page=gruposList");
+header("Location: ../../?page=gruposList");
 
 ?>

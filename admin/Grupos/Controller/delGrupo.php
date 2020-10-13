@@ -1,8 +1,8 @@
 <?php
-require "../../Util/Metodo.php";
+require "../../../Util/Metodo.php";
 $metodo = new Metodo();
 
-$grupo_id = isset($_POST['grupoId']) ? $_POST['grupoId'] : null;
+$grupo_id = isset($_GET['grupoId']) ? $_GET['grupoId'] : null;
 
 if (empty($grupo_id)) {
     echo "Pedido inválido.";
@@ -11,6 +11,6 @@ if (empty($grupo_id)) {
 
 $metodo->delGrupo($grupo_id);
 
-header("Location: ../Grupos/gruposList.php");
+header("Location: ../../?page=gruposList");
 
 ?>

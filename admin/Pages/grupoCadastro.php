@@ -1,10 +1,3 @@
-<?php
-/*
-require "../../Util/Metodo.php";
-$metodo = new Metodo();
-$grupos = $metodo->buscarGrupos();
-
-*/?>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,7 +7,7 @@ $grupos = $metodo->buscarGrupos();
 </head>
 <body>
 
-<form action="Controller/addGrupo.php" method="post">
+<form action="../admin/Grupos/Controller/addGrupo.php" method="post">
 
     <header>
         <h2>Cadastro Novo Grupo</h2>
@@ -50,6 +43,7 @@ $grupos = $metodo->buscarGrupos();
     <div>
         <div>
             <button class="btn-success" type="submit" >Salvar</button>
+            <a href="?page=gruposList" class="btn-danger">Cancelar</a>
         </div>
     </div>
 
