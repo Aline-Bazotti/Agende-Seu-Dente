@@ -38,7 +38,7 @@ $dados = $metodo->buscarUsuarios();
                     <td class="actions text-left">
                         <a class="btn btn-sm btn-warning" href="?page=usuarioForm&usuarioId=<?= $usuario['id']; ?>">
                             <i class="fa fa-edit"></i>Editar</a>
-                        <a class="btn btn-sm btn-danger" href="../admin/Usuario/Controller/delUsuario.php?grupoId=<?= $grupo['id']; ?>">
+                        <a class="btn btn-sm btn-danger" href="../admin/Usuario/Controller/delUsuario.php?usuarioId=<?= $usuario['id']; ?>">
                             <i class="fa fa-trash"></i> Excluir</a>
                     </td>
 				</tr>

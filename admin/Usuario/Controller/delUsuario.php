@@ -1,20 +1,16 @@
 <?php
-require_once 'conecta.php';
+require "../../../Util/Metodo.php";
+$metodo = new Metodo();
 
-$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+$id = isset($_GET['usuarioId']) ? $_GET['usuarioId'] : null;
 
 if (empty($id)) {
-	echo "Pedido inválido.";
-	exit;
+    echo "Pedido inválido.";
+    exit;
 }
 
-$sql = "DELETE FROM pedidos WHERE id = :id";
-$qryData = $PDO->prepare($sql);
-$qryData->bindParam(':id', $id, PDO::PARAM_INT);
+$metodo->delUsuario($id);
 
-if ($qryData->execute()) {
-    header('Location: servicosForm.php');
-} else {
-    echo "Erro ao remover.";
-    var_dump($qryData->errorInfo());
-}
+header("Location: ../../?page=usuariosList");
+
+?>

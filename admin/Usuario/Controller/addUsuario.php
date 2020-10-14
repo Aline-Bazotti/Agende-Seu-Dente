@@ -22,6 +22,6 @@ $senha = sha1($senhas);
 
 $metodo->addUsuario($nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$senha,$grupo);
 
-header("Location: ../../?page=gruposList");
+header("Location: ../../?page=usuariosList");
 
 ?>

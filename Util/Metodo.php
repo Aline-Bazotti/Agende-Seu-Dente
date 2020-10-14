@@ -235,6 +235,59 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function editUsuarioComSenha($id, $nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$senha,$grupo){
+        try {
+            $sql = $this->conexao->prepare("UPDATE usuario SET nome = :nome, cpf = :cpf_cpnj, data_nascimento = :data_nasc,cro = :cro,
+            telefone = :telefone,telefone_s = :telefone_s,status = :status,email = :email,senha = :senha,assinatura = :assinatura, id_grupo = :id_grupo WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':cpf_cpnj'=>$cpf_cpnj,
+                ':nome' => $nome,
+                ':data_nasc' =>$data_nasc,
+                ':cro' => $cro,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':status' => $status,
+                ':email' => $email,
+                ':senha' =>$senha,
+                ':assinatura' => $assinatura,
+                ':id_grupo' => $grupo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editUsuario($id, $nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$grupo){
+        try {
+            $sql = $this->conexao->prepare("UPDATE usuario SET nome = :nome, cpf = :cpf_cpnj, data_nascimento = :data_nasc,cro = :cro,
+            telefone = :telefone,telefone_s = :telefone_s,status = :status,email = :email,assinatura = :assinatura, id_grupo = :id_grupo WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':cpf_cpnj'=>$cpf_cpnj,
+                ':nome' => $nome,
+                ':data_nasc' =>$data_nasc,
+                ':cro' => $cro,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':status' => $status,
+                ':email' => $email,
+                ':assinatura' => $assinatura,
+                ':id_grupo' => $grupo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delUsuario($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM usuario WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
     public function buscarUsuarioPorId($usuario_id)
     {
         try {
