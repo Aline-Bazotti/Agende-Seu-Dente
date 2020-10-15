@@ -4,7 +4,6 @@ $metodo = new Metodo();
 
 $descricao_site = isset($_POST['descricao_site']) ? $_POST['descricao_site'] : null;
 $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : null;
-$logotipo = isset($_POST['logotipo']) ? $_POST['logotipo'] : null;
 $palavra_chave = isset($_POST['palavra_chave']) ? $_POST['palavra_chave'] : null;
 $estado = isset($_POST['estado']) ? $_POST['estado'] : null;
 $municipio = isset($_POST['municipio']) ? $_POST['municipio'] : null;
@@ -41,16 +40,61 @@ $mensagem_off = isset($_POST['mensagem_off']) ? $_POST['mensagem_off'] : null;
 $whitelist = isset($_POST['whitelist']) ? $_POST['whitelist'] : null;
 $blacklist = isset($_POST['blacklist']) ? $_POST['blacklist'] : null;
 
-if (empty($descricao_site) || empty($estado) || empty($online) ||  empty($mensagem_off)) {
+if (empty($descricao_site) || empty($estado) ||  empty($mensagem_off)) {
     echo "Preencha todos os campos.";
     exit;
 }
+if ($_FILES["logotipo"]["tmp_name"]) {
+    $logotipo = $_FILES["logotipo"]["name"];
+    $ext_permitidas = array(".jpg", ".jpeg", ".gif", ".png");
+    $ext = substr($logotipo, strpos($logotipo, '.'), strlen($logotipo) - 1);
+    if (!in_array($ext, $ext_permitidas)) {
+        header("Location:../../?page=siteList&erro=1");
+        exit();
+    } else {
+        list($width, $height, $type, $attr) = getimagesize($_FILES["logotipo"]["tmp_name"]);
+        if ($width > 710) {
+            header("Location:../../?page=siteList&erro=2");
+            exit();
+        } else {
+            if ($height > 230) {
+                header("Location:../../?page=siteList&erro=4");
+                exit();
+            } else {
+                $logotipo = $_FILES["logotipo"]["name"];
+                move_uploaded_file($_FILES["logotipo"]["tmp_name"], "../img/" . $logotipo);
+                rename("../img/$logotipo", '../img/' . $logotipo);
+                $metodo->editSiteComLogo($descricao_site,$descricao,$logotipo,$palavra_chave,$estado,$municipio,$bairro, $logradouro,$numero,$complemento,$email,$email_contato,$email_trabalhe,
+                    $telefone,$telefone_s,$twitter,$facebook,$youtube,$linkedin,$gm_latitude,$gm_longitude,$gm_tipo,$ga_email,$ga_senha,$ga_perfil, $email_tipo, $email_seguranca,
+                    $email_servidor,$email_protocolo,$email_smtp,$email_usuario,$email_senha,$email_porta,$midia_mimetype,$online,$mensagem_off,$whitelist,$blacklist
+                );
+            }
+        }
+    }
+} else {
+    $metodo->editSite($descricao_site,$descricao,$palavra_chave,$estado,$municipio,$bairro, $logradouro,$numero,$complemento,$email,$email_contato,$email_trabalhe,
+        $telefone,$telefone_s,$twitter,$facebook,$youtube,$linkedin,$gm_latitude,$gm_longitude,$gm_tipo,$ga_email,$ga_senha,$ga_perfil, $email_tipo, $email_seguranca,
+        $email_servidor,$email_protocolo,$email_smtp,$email_usuario,$email_senha,$email_porta,$midia_mimetype,$online,$mensagem_off,$whitelist,$blacklist
+    );
+}
 
-$metodo->editSite($descricao_site,$descricao,$logotipo,$palavra_chave,$estado,$municipio,$bairro, $logradouro,$numero,$complemento,$email,$email_contato,$email_trabalhe,
-$telefone,$telefone_s,$twitter,$facebook,$youtube,$linkedin,$gm_latitude,$gm_longitude,$gm_tipo,$ga_email,$ga_senha,$ga_perfil, $email_tipo, $email_seguranca,
-$email_servidor,$email_protocolo,$email_smtp,$email_usuario,$email_senha,$email_porta,$midia_mimetype,$online,$mensagem_off,$whitelist,$blacklist);
+$erro = isset($_GET['erro']) ? $_GET['erro'] : '';
+if ($erro == "") {
+} else {
+    if ($erro == "1") {
+        echo "Selecione somente imagens em .jpg, .png, .gif.";
+    }
+    if ($erro == "2") {
+        echo "A imagem não pode ultrapassar os 710px da largura.";
+    }
+    if ($erro == "4") {
+        echo "A imagem não pode ultrapassar os 230px da altura.";
+    }
+    if ($erro == "3") {
+        echo "Selecione uma imagem para ser enviada";
+    }
+}
 
 
-header("Location: ../../?page=usuariosList");
+header("Location: ../../?page=siteList");
 
-?>

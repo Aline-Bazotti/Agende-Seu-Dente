@@ -46,8 +46,8 @@ $municipios =$metodo->buscarMunicipio();
                     <div>
                         <label class="desc" id="logotipo" for="logotipo">Logotipo</label>
                         <div>
-                            <input type="hidden" name="MAX_FILE_SIZE" value="1000" />
-                            <input id="logotipo" name="logotipo" type="file" value="<?= $site['logotipo'] ?>" tabindex="1">
+                            <img src="../admin/Site/img/<?= $site['logotipo'] ?>" width="115" height="75">
+                            <input id="logotipo" name="logotipo" type="file">
                         </div>
                     </div>
                     <div>

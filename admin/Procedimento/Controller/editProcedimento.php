@@ -1,18 +1,20 @@
 <?php
-require "../../Util/Metodo.php";
+require "../../../Util/Metodo.php";
 $metodo = new Metodo();
 
-$grupo_id = isset($_POST['grupoId']) ? $_POST['grupoId'] : null;
-$grupo_nome = isset($_POST['grupoNome']) ? $_POST['grupoNome'] : null;
-$grupo_permissao = isset($_POST['grupoPermissoes']) ? $_POST['grupoPermissoes'] : null;
 
-if (empty($grupo_id) || empty($grupo_nome) ||  empty($grupo_permissao)) {
+$id = isset($_POST['procedimentoId']) ? $_POST['procedimentoId'] : null;
+$descricao = isset($_POST['descricao']) ? $_POST['descricao'] : null;
+$duracao = isset($_POST['duracao']) ? $_POST['duracao'] : null;
+
+
+if (empty($descricao) || empty($duracao)) {
     echo "Preencha todos os campos.";
     exit;
 }
 
-$metodo->editGrupo($grupo_id,$grupo_nome,$grupo_permissao);
+$metodo->editProcedimento($id,$descricao,$duracao);
 
-header("Location: ../Grupos/gruposList.php");
+header("Location: ../../?page=procedimentosList");
 
 ?>

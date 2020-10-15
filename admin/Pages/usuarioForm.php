@@ -101,8 +101,9 @@ $grupos = $metodo->buscarGrupos();
     </div>
     <div>
         <div>
-            <button class="btn-success" type="submit" >Salvar</button>
-            <a href="?page=usuariosList" class="btn-danger">Cancelar</a>
+            <br>
+            <button class="btn btn-sm btn-success" type="submit" >Salvar</button>
+            <a href="?page=usuariosList" class="btn btn-sm btn-danger">Cancelar</a>
         </div>
     </div>
 </form>

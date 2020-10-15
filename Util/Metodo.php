@@ -323,4 +323,169 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function editSiteComLogo($descricao_site,$descricao,$logotipo,$palavra_chave,$estado,$municipio,$bairro, $logradouro,$numero,$complemento,$email,$email_contato,$email_trabalhe,
+                             $telefone,$telefone_s,$twitter,$facebook,$youtube,$linkedin,$gm_latitude,$gm_longitude,$gm_tipo,$ga_email,$ga_senha,$ga_perfil, $email_tipo, $email_seguranca,
+                             $email_servidor,$email_protocolo,$email_smtp,$email_usuario,$email_senha,$email_porta,$midia_mimetype,$online,$mensagem_off,$whitelist,$blacklist){
+        try {
+            $sql = $this->conexao->prepare("UPDATE site SET descricao_site = :descricao_site, descricao = :descricao, logotipo = :logotipo, palavra_chave = :palavra_chave, uf_estado = :estado, id_municipio = :municipio,
+            bairro = :bairro,logradouro = :logradouro,numero = :numero, complemento = :complemento, email = :email,email_contato = :email_contato, email_trabalhe = :email_trabalhe, telefone = :telefone, 
+            telefone_s = :telefone_s, twitter = :twitter, facebook = :facebook, youtube = :youtube, linkedin = :linkedin, gm_latitude = :gm_latitude, gm_longitude = :gm_longitude, gm_tipo =:gm_tipo,
+            ga_email = :ga_email, ga_senha =:ga_senha, ga_perfil = :ga_perfil, email_tipo =:email_tipo, email_seguranca =:email_seguranca, email_servidor =:email_servidor, email_protocolo = :email_protocolo,
+            email_smtp = :email_smtp, email_usuario = :email_usuario, email_senha = :email_senha, email_porta = :email_porta, midia_mimetype = :midia_mimetype, online = :online, mensagem_off = :mensagem_off,
+            whitelist = :whitelist, blacklist = :blacklist WHERE id = 1");
+            $sql->execute(array(
+                ':descricao_site'=>$descricao_site,
+                ':descricao'=>$descricao,
+                ':logotipo'=>$logotipo,
+                ':palavra_chave' => $palavra_chave,
+                ':estado' => $estado,
+                ':municipio' => $municipio,
+                ':bairro' => $bairro,
+                ':logradouro' => $logradouro,
+                ':numero' => $numero,
+                ':complemento' => $complemento,
+                ':email' => $email,
+                ':email_contato' => $email_contato,
+                ':email_trabalhe' => $email_trabalhe,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':twitter' => $twitter,
+                ':facebook' => $facebook,
+                ':youtube' => $youtube,
+                ':linkedin' => $linkedin,
+                ':gm_latitude' => $gm_latitude,
+                ':gm_longitude' => $gm_longitude,
+                ':gm_tipo' => $gm_tipo,
+                ':ga_email' => $ga_email,
+                ':ga_senha' => $ga_senha,
+                ':ga_perfil' => $ga_perfil,
+                ':email_tipo' => $email_tipo,
+                ':email_seguranca' => $email_seguranca,
+                ':email_servidor' => $email_servidor,
+                ':email_protocolo' => $email_protocolo,
+                ':email_smtp' => $email_smtp,
+                ':email_usuario' => $email_usuario,
+                ':email_senha' => $email_senha,
+                ':email_porta' => $email_porta,
+                ':midia_mimetype' => $midia_mimetype,
+                ':online' => $online,
+                ':mensagem_off' => $mensagem_off,
+                ':whitelist' => $whitelist,
+                ':blacklist' => $blacklist,
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editSite($descricao_site,$descricao,$palavra_chave,$estado,$municipio,$bairro, $logradouro,$numero,$complemento,$email,$email_contato,$email_trabalhe,
+                                    $telefone,$telefone_s,$twitter,$facebook,$youtube,$linkedin,$gm_latitude,$gm_longitude,$gm_tipo,$ga_email,$ga_senha,$ga_perfil, $email_tipo, $email_seguranca,
+                                    $email_servidor,$email_protocolo,$email_smtp,$email_usuario,$email_senha,$email_porta,$midia_mimetype,$online,$mensagem_off,$whitelist,$blacklist){
+        try {
+            $sql = $this->conexao->prepare("UPDATE site SET descricao_site = :descricao_site, descricao = :descricao, palavra_chave = :palavra_chave, uf_estado = :estado, id_municipio = :municipio,
+            bairro = :bairro,logradouro = :logradouro,numero = :numero, complemento = :complemento, email = :email,email_contato = :email_contato, email_trabalhe = :email_trabalhe, telefone = :telefone, 
+            telefone_s = :telefone_s, twitter = :twitter, facebook = :facebook, youtube = :youtube, linkedin = :linkedin, gm_latitude = :gm_latitude, gm_longitude = :gm_longitude, gm_tipo =:gm_tipo,
+            ga_email = :ga_email, ga_senha =:ga_senha, ga_perfil = :ga_perfil, email_tipo =:email_tipo, email_seguranca =:email_seguranca, email_servidor =:email_servidor, email_protocolo = :email_protocolo,
+            email_smtp = :email_smtp, email_usuario = :email_usuario, email_senha = :email_senha, email_porta = :email_porta, midia_mimetype = :midia_mimetype, online = :online, mensagem_off = :mensagem_off,
+            whitelist = :whitelist, blacklist = :blacklist WHERE id = 1");
+            $sql->execute(array(
+                ':descricao_site'=>$descricao_site,
+                ':descricao'=>$descricao,
+                ':palavra_chave' => $palavra_chave,
+                ':estado' => $estado,
+                ':municipio' => $municipio,
+                ':bairro' => $bairro,
+                ':logradouro' => $logradouro,
+                ':numero' => $numero,
+                ':complemento' => $complemento,
+                ':email' => $email,
+                ':email_contato' => $email_contato,
+                ':email_trabalhe' => $email_trabalhe,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':twitter' => $twitter,
+                ':facebook' => $facebook,
+                ':youtube' => $youtube,
+                ':linkedin' => $linkedin,
+                ':gm_latitude' => $gm_latitude,
+                ':gm_longitude' => $gm_longitude,
+                ':gm_tipo' => $gm_tipo,
+                ':ga_email' => $ga_email,
+                ':ga_senha' => $ga_senha,
+                ':ga_perfil' => $ga_perfil,
+                ':email_tipo' => $email_tipo,
+                ':email_seguranca' => $email_seguranca,
+                ':email_servidor' => $email_servidor,
+                ':email_protocolo' => $email_protocolo,
+                ':email_smtp' => $email_smtp,
+                ':email_usuario' => $email_usuario,
+                ':email_senha' => $email_senha,
+                ':email_porta' => $email_porta,
+                ':midia_mimetype' => $midia_mimetype,
+                ':online' => $online,
+                ':mensagem_off' => $mensagem_off,
+                ':whitelist' => $whitelist,
+                ':blacklist' => $blacklist,
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarProcedimentos()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from procedimento");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarProcedimentoPorId($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from procedimento where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addProcedimento($descricao,$duracao){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO procedimento(descricao,duracao_media) VALUES 
+            (:descricao, :duracao)");
+            $sql->execute(array(
+                ':descricao'=>$descricao,
+                ':duracao' => $duracao
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editProcedimento($id, $descricao,$duracao){
+        try {
+            $sql = $this->conexao->prepare("UPDATE procedimento SET descricao = :descricao, duracao_media = :duracao WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':descricao'=>$descricao,
+                ':duracao' => $duracao
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delProcedimento($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM procedimento WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }
