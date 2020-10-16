@@ -17,6 +17,7 @@ $dados = $metodo->buscarInstitucional();
     <header>
         <div class="row">
             <div class="col-sm-6">
+                <br>
                 <h2>Institucional</h2>
             </div>
         </div>
@@ -26,14 +27,17 @@ $dados = $metodo->buscarInstitucional();
         <thead>
         <tr>
             <th width="10%">Título</th>
-            <th width="10%">Descrição</th>
+            <th width="50%">Descrição</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
             <?php foreach($dados as $institucional): ?>
                 <tr>
-                    <td><?= $institucional['desc']; ?></td>
+                    <td><?= $institucional['descricao']; ?></td>
                     <td><?= $institucional['texto']; ?></td>
+                    <td><img src="../admin/Institucional/img/<?= $institucional['imagem']; ?>" width="250" height="250">
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

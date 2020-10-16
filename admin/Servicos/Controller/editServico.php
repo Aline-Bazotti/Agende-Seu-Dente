@@ -30,7 +30,7 @@ $texto = isset($_POST['texto']) ? $_POST['texto'] : null;
 $status = isset($_POST['status']) ? $_POST['status'] : null;
 $inicial = isset($_POST['inicial']) ? $_POST['inicial'] : null;
 
-if (empty($id) || empty($desc) ||  empty($texto) ||  empty($status) ||  empty($inicial)) {
+if (empty($id) || empty($desc) ||  empty($texto)) {
     echo "Preencha todos os campos.";
     exit;
 }

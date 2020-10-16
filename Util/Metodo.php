@@ -27,6 +27,17 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarTodosInstitucional()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from institucional");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
     public function buscarInstitucional()
     {
         try {
@@ -46,6 +57,94 @@ class Metodo extends Base
             $dados = $sql->fetchAll();
             return $dados;
         } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarInstitucionalPorId($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from institucional where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editInstitucional($id,$desc,$texto,$status,$inicial){
+        try {
+            $sql = $this->conexao->prepare("UPDATE institucional SET descricao = :descricao, texto = :texto, status = :status, inicial = :inicial WHERE id = :id");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto'=>$texto,
+                ':status'=>$status,
+                ':inicial'=>$inicial,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editInstitucionalComImagem($id,$desc,$texto,$imagem,$status,$inicial){
+        try {
+            $sql = $this->conexao->prepare("UPDATE institucional SET descricao = :descricao, texto = :texto, imagem =:imagem, status = :status, inicial = :inicial WHERE id = :id");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto'=>$texto,
+                ':imagem' => $imagem,
+                ':status'=>$status,
+                ':inicial'=>$inicial,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editInstitucionalStatus($id,$valor){
+        try {
+            $sql = $this->conexao->prepare("UPDATE institucional SET status = :valor WHERE id = :id");
+            $sql->execute(array(
+                ':valor'=>$valor,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editInstitucionalInicial($id,$valor){
+        try {
+            $sql = $this->conexao->prepare("UPDATE institucional SET inicial = :valor WHERE id = :id");
+            $sql->execute(array(
+                ':valor'=>$valor,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addInstitucional($desc,$texto,$imagem,$status,$inicial){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO institucional(descricao, texto, imagem, status, inicial) VALUES (:descricao, :texto, :imagem, :status,:inicial)");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto' => $texto,
+                ':imagem' =>$imagem,
+                ':status' =>$status,
+                ':inicial' =>$inicial
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delInstitucional($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM institucional WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
     }

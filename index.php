@@ -2,10 +2,6 @@
 require 'Util/Metodo.php';
 $metodo = new Metodo();
 
-$mensagem = 'oi';
-if (isset($_POST['mensagem'])) {
-    $mensagem = $_POST['mensagem'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt_br">
@@ -48,7 +44,7 @@ if (isset($_POST['mensagem'])) {
 </style>
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="http://localhost/Agende-Seu-Dente/">Agende Seu Dente</a>
+    <a class="navbar-brand" href="?">Agende Seu Dente</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
