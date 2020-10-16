@@ -22,6 +22,7 @@ $dados = $metodo->buscarUsuarios();
 			<th>Nome</th>
 			<th>Status</th>
 			<th>E-mail</th>
+            <th>Ação</th>
 		</tr>
 	</thead>
 	<tbody>

@@ -160,11 +160,12 @@ CREATE TABLE `prontuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente';
 
 CREATE TABLE `servicos` (
+  CREATE TABLE `servicos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `desc` varchar(45) NOT NULL COMMENT 'título do serviço',
+  `descricao` varchar(45) NOT NULL COMMENT 'título do serviço',
   `texto` varchar(255) NOT NULL,
   `status` tinyint(4) NOT NULL COMMENT '1 - Publicado\n0 - Inativo',
-  `slug` varchar(45) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
   `usu_cad` int(10) NOT NULL,
   `data_cad` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `usu_alt` int(10) DEFAULT NULL,

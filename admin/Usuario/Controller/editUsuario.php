@@ -19,7 +19,6 @@ if (empty($id) || empty($nome) || empty($cpf_cpnj) ||  empty($grupo)) {
     echo "Preencha todos os campos.";
     exit;
 }
-echo "Id= ".$id." Nome=".$nome."CPF=".$cpf_cpnj;
 
 if ($senhas) {
     $senha = sha1($senhas);

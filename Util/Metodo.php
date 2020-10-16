@@ -82,6 +82,17 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarTodosServicos()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from servicos");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
     public function buscarServicos()
     {
         try {
@@ -101,6 +112,94 @@ class Metodo extends Base
             $dados = $sql->fetchAll();
             return $dados;
         } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarServicoPorid($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from servicos where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editServico($id,$desc,$texto,$status,$inicial){
+        try {
+            $sql = $this->conexao->prepare("UPDATE servicos SET descricao = :descricao, texto = :texto, status = :status, inicial = :inicial WHERE id = :id");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto'=>$texto,
+                ':status'=>$status,
+                ':inicial'=>$inicial,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editServicoComImagem($id,$desc,$texto,$status,$inicial,$imagem){
+        try {
+            $sql = $this->conexao->prepare("UPDATE servicos SET descricao = :descricao, texto = :texto, status = :status, inicial = :inicial, imagem =:imagem WHERE id = :id");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto'=>$texto,
+                ':status'=>$status,
+                ':inicial'=>$inicial,
+                ':imagem' => $imagem,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editServicoStatus($id,$valor){
+        try {
+            $sql = $this->conexao->prepare("UPDATE servicos SET status = :valor WHERE id = :id");
+            $sql->execute(array(
+                ':valor'=>$valor,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editServicoInicial($id,$valor){
+        try {
+            $sql = $this->conexao->prepare("UPDATE servicos SET inicial = :valor WHERE id = :id");
+            $sql->execute(array(
+                ':valor'=>$valor,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addServico($desc,$texto,$status,$inicial, $imagem){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO servicos(descricao, texto, status, inicial, imagem) VALUES (:descricao, :texto, :status,:inicial, :imagem)");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':texto' => $texto,
+                ':status' =>$status,
+                ':inicial' =>$inicial,
+                ':imagem' =>$imagem
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delServico($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM servicos WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
     }
