@@ -77,12 +77,14 @@ $metodo = new Metodo();
     </div>
 </nav>
 <main role="main">
-        <div class="container">
+
             <?php
             if(isset($_GET['page'])) {
                 $pgAtual = $_GET['page'];
                 if(file_exists("site/pages/".$pgAtual.".php")) {
+                ?><div class="container"><?php
                     include("site/pages/".$pgAtual.".php");
+                ?></div> <!-- /container --><?php
                 } else {
                     include("site/Pages/404.php");
                 }
@@ -90,7 +92,7 @@ $metodo = new Metodo();
                 include("site/Pages/home.php");
             }
             ?>
-        </div> <!-- /container -->
+
 </main>
 
 </body>

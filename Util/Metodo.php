@@ -148,7 +148,7 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
-    public function buscarTodosBanners()
+    public function buscarBanners()
     {
         try {
             $sql = $this->conexao->prepare("select * from banner where status=1 order by ordem");
@@ -156,6 +156,112 @@ class Metodo extends Base
             $dados = $sql->fetchAll();
             return $dados;
         } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function qtdBanners()
+    {
+        try {
+            $sql = $this->conexao->prepare("select count(*) from banner where status=1 order by ordem");
+            $sql->execute();
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarBannerPorId($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from banner where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarTodosBanners()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from banner");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addBanner($titulo,$descricao,$botao,$imagem,$ordem,$status,$botaoLink){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO banner(titulo, descricao, botao, imagem, ordem, status, botaoLink) VALUES 
+            (:titulo, :descricao, :botao,:imagem, :ordem, :status, :botaoLink)");
+            $sql->execute(array(
+                ':titulo'=>$titulo,
+                ':descricao' => $descricao,
+                ':botao' =>$botao,
+                ':imagem' =>$imagem,
+                ':ordem' =>$ordem,
+                ':status' =>$status,
+                ':botaoLink' =>$botaoLink
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editBannerStatus($id,$valor){
+        try {
+            $sql = $this->conexao->prepare("UPDATE banner SET status = :valor WHERE id = :id");
+            $sql->execute(array(
+                ':valor'=>$valor,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editBanner($id,$titulo,$descricao,$botao,$ordem,$status,$botaoLink){
+        try {
+            $sql = $this->conexao->prepare("UPDATE banner SET titulo = :titulo, descricao = :descricao, botao = :botao, ordem = :ordem, status = :status, botaoLink = :botaoLink WHERE id = :id");
+            $sql->execute(array(
+                ':titulo'=>$titulo,
+                ':descricao'=>$descricao,
+                ':botao'=>$botao,
+                ':ordem'=>$ordem,
+                ':status'=>$status,
+                ':botaoLink'=>$botaoLink,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editBannerComImagem($id,$titulo,$descricao,$botao,$imagem,$ordem,$status,$botaoLink){
+        try {
+            $sql = $this->conexao->prepare("UPDATE banner SET titulo = :titulo, descricao = :descricao, botao = :botao, imagem = :imagem, ordem = :ordem, status = :status, botaoLink = :botaoLink WHERE id = :id");
+            $sql->execute(array(
+                ':titulo'=>$titulo,
+                ':descricao'=>$descricao,
+                ':botao'=>$botao,
+                ':imagem'=>$imagem,
+                ':ordem'=>$ordem,
+                ':status'=>$status,
+                ':botaoLink'=>$botaoLink,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delBanner($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM banner WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
     }
