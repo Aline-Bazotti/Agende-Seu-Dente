@@ -27,6 +27,94 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function addPaciente($nome,$cpf_cpnj,$data_nasc,$nome_responsavel,$telefone,$telefone_s,$rg_ie,$nome_pai,$nome_mae,$email,$senha,$indicacao_dr,
+                                $nome_empresa,$telefone_empresa,$profissao,$horario_trabalho,$cargo,$naturalidade,$nacionalidade,$estado_civil,$nome_conjuge,$sexo){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO paciente(nome,cpf_cnpj,email,senha,telefone,telefone_s,rg_ie,data_nascimento, nome_pai, 
+            nome_mae, nome_responsavel, indicacao_dr,nome_empresa,telefone_empresa,profissao,horario_trabalho,cargo,naturalidade,nacionalidade,estado_civil,
+            nome_conjuge,sexo) VALUES (:nome,:cpf_cnpj,:email,:senha,:telefone,:telefone_s,:rg_ie,:data_nascimento,:nome_pai,:nome_mae,:nome_responsavel,
+            :indicacao_dr,:nome_empresa,:telefone_empresa,:profissao,:horario_trabalho,:cargo,:naturalidade,:nacionalidade,:estado_civil,:nome_conjuge,:sexo)");
+            $sql->execute(array(
+                ':nome' => $nome,
+                ':cpf_cnpj'=>$cpf_cpnj,
+                ':email' => $email,
+                ':senha' =>$senha,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':rg_ie' => $rg_ie,
+                ':data_nascimento' =>$data_nasc,
+                ':nome_pai' => $nome_pai,
+                ':nome_mae' => $nome_mae,
+                ':nome_responsavel' => $nome_responsavel,
+                ':indicacao_dr' => $indicacao_dr,
+                ':nome_empresa' => $nome_empresa,
+                ':telefone_empresa' => $telefone_empresa,
+                ':profissao' => $profissao,
+                ':horario_trabalho' => $horario_trabalho,
+                ':cargo' => $cargo,
+                ':naturalidade' => $naturalidade,
+                ':nacionalidade' => $nacionalidade,
+                ':estado_civil' => $estado_civil,
+                ':nome_conjuge' => $nome_conjuge,
+                ':sexo' => $sexo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editPacienteComSenha($id, $nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$senha,$grupo){
+        try {
+            $sql = $this->conexao->prepare("UPDATE paciente SET nome = :nome, cpf = :cpf_cpnj, data_nascimento = :data_nasc,cro = :cro,
+            telefone = :telefone,telefone_s = :telefone_s,status = :status,email = :email,senha = :senha,assinatura = :assinatura, id_grupo = :id_grupo WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':cpf_cpnj'=>$cpf_cpnj,
+                ':nome' => $nome,
+                ':data_nasc' =>$data_nasc,
+                ':cro' => $cro,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':status' => $status,
+                ':email' => $email,
+                ':senha' =>$senha,
+                ':assinatura' => $assinatura,
+                ':id_grupo' => $grupo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editPaciente($id, $nome,$cpf_cpnj,$data_nasc,$cro,$assinatura,$telefone,$telefone_s,$status,$email,$grupo){
+        try {
+            $sql = $this->conexao->prepare("UPDATE paciente SET nome = :nome, cpf = :cpf_cpnj, data_nascimento = :data_nasc,cro = :cro,
+            telefone = :telefone,telefone_s = :telefone_s,status = :status,email = :email,assinatura = :assinatura, id_grupo = :id_grupo WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':cpf_cpnj'=>$cpf_cpnj,
+                ':nome' => $nome,
+                ':data_nasc' =>$data_nasc,
+                ':cro' => $cro,
+                ':telefone' => $telefone,
+                ':telefone_s' => $telefone_s,
+                ':status' => $status,
+                ':email' => $email,
+                ':assinatura' => $assinatura,
+                ':id_grupo' => $grupo
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delPaciente($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM paciente WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
     public function buscarTodosInstitucional()
     {
         try {
