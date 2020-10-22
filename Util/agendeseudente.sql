@@ -83,8 +83,8 @@ CREATE TABLE `agenda` (
   CONSTRAINT `FKAgenda246187` FOREIGN KEY (`id_procedimento`) REFERENCES `procedimento` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Agenda com atendimentos já marcados';
 
-CREATE TABLE `paciente` (
-  `id` int(10) NOT NULL COMMENT 'ID do paciente',
+CCREATE TABLE `paciente` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID do paciente',
   `nome` varchar(50) DEFAULT NULL COMMENT 'Nome completo do paciente',
   `cpf_cnpj` varchar(30) NOT NULL,
   `email` varchar(50) NOT NULL COMMENT 'e-mail que vai usar no login dele',
@@ -92,16 +92,31 @@ CREATE TABLE `paciente` (
   `telefone` int(15) NOT NULL,
   `telefone_s` int(15) DEFAULT NULL COMMENT 'telefone secundário',
   `rg_ie` varchar(30) DEFAULT NULL COMMENT 'pode ter inscrição estadual isento',
-  `pessoa` char(1) NOT NULL COMMENT 'F- Física\nJ- Jurídica',
+  `pessoa` char(1) NOT NULL DEFAULT 'F' COMMENT 'F- Física\nJ- Jurídica',
   `data_cad` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `usu_cad` int(10) NOT NULL,
   `data_alt` timestamp NULL DEFAULT NULL,
   `usu_alt` int(10) DEFAULT NULL,
+  `data_nascimento` date DEFAULT NULL,
+  `nome_pai` varchar(100) DEFAULT NULL,
+  `nome_mae` varchar(100) DEFAULT NULL,
+  `nome_responsavel` varchar(100) DEFAULT NULL,
+  `indicacao_dr` varchar(100) DEFAULT NULL COMMENT 'Qual Dr(a) que indicou',
+  `nome_empresa` varchar(100) DEFAULT NULL,
+  `telefone_empresa` varchar(15) DEFAULT NULL,
+  `profissao` varchar(100) DEFAULT NULL,
+  `horario_trabalho` varchar(100) DEFAULT NULL,
+  `cargo` varchar(100) DEFAULT NULL,
+  `naturalidade` varchar(100) DEFAULT NULL,
+  `nacionalidade` varchar(100) DEFAULT NULL,
+  `estado_civil` varchar(100) DEFAULT NULL,
+  `nome_conjuge` varchar(100) DEFAULT NULL,
+  `sexo` char(1) DEFAULT NULL COMMENT 'F-feminino, M-masculino',
   PRIMARY KEY (`id`),
   UNIQUE KEY `cpf_cnpj` (`cpf_cnpj`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `rg_ie` (`rg_ie`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente';
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente'
 
 CREATE TABLE `arquivos` (
   `id` int(10) NOT NULL,
