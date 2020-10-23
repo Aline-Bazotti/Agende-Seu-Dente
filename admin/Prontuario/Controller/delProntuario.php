@@ -1,16 +1,16 @@
 <?php
-require "../../Util/Metodo.php";
+require "../../../Util/Metodo.php";
 $metodo = new Metodo();
 
-$grupo_id = isset($_POST['grupoId']) ? $_POST['grupoId'] : null;
+$id = isset($_GET['pacienteId']) ? $_GET['pacienteId'] : null;
 
-if (empty($grupo_id)) {
+if (empty($id)) {
     echo "Pedido inválido.";
     exit;
 }
 
-$metodo->delGrupo($grupo_id);
+$metodo->delPaciente($id);
 
-//header("Location: ../Grupos/gruposList.php");
+header("Location: ../../?page=pacientesList");
 
 ?>

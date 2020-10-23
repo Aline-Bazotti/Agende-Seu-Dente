@@ -15,13 +15,6 @@
     </header>
 
     <div>
-        <label class="desc" for="Name">Grupo id</label>
-        <div>
-            <input id="grupoId" name="grupoId" type="number" class="field text fn" value="" size="20" tabindex="1" required="required">
-        </div>
-    </div>
-
-    <div>
         <label class="desc" for="Name">Nome*</label>
         <div>
             <input id="grupoNome" name="grupoNome" type="text" class="field text fn" value="" size="20" tabindex="1" required="required">
@@ -37,13 +30,16 @@
                 <option value="systemAdmin">System Admin</option>
                 <option value="dentista">Dentista</option>
                 <option value="auxiliar">Auxiliar</option>
+                <option value="paciente">Paciente</option>
             </select>
         </div>
     </div>
+
     <div>
         <div>
-            <button class="btn-success" type="submit" >Salvar</button>
-            <a href="?page=gruposList" class="btn-danger">Cancelar</a>
+            <br>
+            <button class="btn btn-sm btn-success" type="submit" >Salvar</button>
+            <a href="?page=gruposList" class="btn btn-sm btn-danger">Cancelar</a>
         </div>
     </div>
 

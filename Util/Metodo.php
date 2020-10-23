@@ -145,6 +145,97 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarEnderecoPorIdPaciente($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from endereco where id_paciente = :id");
+            $sql->execute(array(
+                ':id' => $id
+            ));
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarEstadoIdEndereco($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from estado where uf = :id");
+            $sql->execute(array(
+                ':id' => $id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarMunicipioIdEndereco($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from municipio where id = :id");
+            $sql->execute(array(
+                ':id' => $id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addEndereco($desc,$logradouro,$numero,$complemento,$cep,$id_municipio,$uf_estado,$principal,$id_paciente,$bairro){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO endereco(descricao, logradouro, numero, complemento, cep, id_municipio,uf_estado, principal, id_paciente,bairro) 
+            VALUES (:descricao, :logradouro, :numero, :complemento,:cep,:id_municipio,:uf_estado,:principal,:id_paciente,:bairro)");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':logradouro' => $logradouro,
+                ':numero' =>$numero,
+                ':complemento' =>$complemento,
+                ':cep' =>$cep,
+                ':id_municipio' =>$id_municipio,
+                ':uf_estado' =>$uf_estado,
+                ':principal' =>$principal,
+                ':id_paciente' =>$id_paciente,
+                ':bairro' =>$bairro
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editEndereco($id,$desc,$logradouro,$numero,$complemento,$cep,$id_municipio,$uf_estado,$principal,$id_paciente,$bairro){
+        try {
+            $sql = $this->conexao->prepare("UPDATE endereco SET descricao = :descricao, logradouro = :logradouro, numero = :numero, complemento = :complemento,
+                                                     cep = :cep, id_municipio= :id_municipio, uf_estado = :uf_estado, principal = :principal, id_paciente = :id_paciente,
+                                                     bairro = :bairro WHERE id = :id");
+            $sql->execute(array(
+                ':descricao'=>$desc,
+                ':logradouro' => $logradouro,
+                ':numero' =>$numero,
+                ':complemento' =>$complemento,
+                ':cep' =>$cep,
+                ':id_municipio' =>$id_municipio,
+                ':uf_estado' =>$uf_estado,
+                ':principal' =>$principal,
+                ':id_paciente' =>$id_paciente,
+                ':bairro' =>$bairro,
+                ':id' => $id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delEndereco($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM endereco WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
     public function buscarTodosInstitucional()
     {
         try {
@@ -526,11 +617,10 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
-    public function addGrupo($grupoId, $grupoNome, $grupoPermissoes){
+    public function addGrupo($grupoNome, $grupoPermissoes){
         try {
-            $sql = $this->conexao->prepare("INSERT INTO grupo(id, nome, permissoes) VALUES (:grupoId, :grupoNome, :grupoPermissoes)");
+            $sql = $this->conexao->prepare("INSERT INTO grupo(nome, permissoes) VALUES (:grupoNome, :grupoPermissoes)");
             $sql->execute(array(
-                ':grupoId'=>$grupoId,
                 ':grupoNome' => $grupoNome,
                 ':grupoPermissoes' =>$grupoPermissoes));
         }catch (PDOException $e) {
@@ -907,6 +997,126 @@ class Metodo extends Base
                 ':id'=>$id
             ));
         }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarProntuarios()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from prontuario");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarProntuarioPorId($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from prontuario where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addProntuario($paciente,$erupcoes,$nodulos,$musculatura,$cadeia,$ganglionar,$cicatrizes,$assimetria_face_pescoco,$exoftalmia,$glandulas_salivares,$labios,
+        $bochechas,$espaco_retromolar,$lingua,$base_lingua,$assoalho_bucal,$palato,$amigdalas,$limite_orofaringeo,$dentes_ausentes,$dentes_supranumerarios,$dentes_retidos,
+        $diastema,$freios,$erosao,$hipoplasia_esmalte,$manchas,$induto,$tartaro,$retracao_gengival,$gengivas,$mobilidade_dental,$oclusao,$anomalidade_fala,$higiene_oral,
+        $fluxo_salivar,$outros,$pulso,$pressao_arterial,$frequencia_respiratoria,$temperatura,$observacoes){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO prontuario(id_paciente,erupcoes,nodulos,musculatura,cadeia,ganglionar,cicatrizes,assimetria_face_pescoco,
+            exoftalmia,glandulas_salivares,labios,bochechas,espaco_retromolar,lingua,base_lingua,assoalho_bucal,palato,amigdalas,limite_orofaringeo,dentes_ausentes,
+            dentes_supranumerarios,dentes_retidos,diastema,freios,erosao,hipoplasia_esmalte,manchas,induto,tartaro,retracao_gengival,gengivas,mobilidade_dental,oclusao,
+            anomalidade_fala,higiene_oral,fluxo_salivar,outros,pulso,pressao_arterial,frequencia_respiratoria,temperatura,observacoes) VALUES 
+            (:id_paciente,:erupcoes,:nodulos,:musculatura, :cadeia,:ganglionar,:cicatrizes,:assimetria_face_pescoco, :exoftalmia, :glandulas_salivares,:labios, :bochechas, 
+            :espaco_retromolar, :lingua, :base_lingua, :assoalho_bucal, :palato, :amigdalas, :limite_orofaringeo, :dentes_ausentes, :dentes_supranumerarios, :dentes_retidos, 
+            :diastema,:freios, :erosao, :hipoplasia_esmalte,:manchas, :induto, :tartaro, :retracao_gengival, :gengivas, :mobilidade_dental, :oclusao, :anomalidade_fala, 
+            :higiene_oral, :fluxo_salivar,:outros, :pulso,:pressao_arterial,:frequencia_respiratoria,:temperatura, :observacoes)");
+            $sql->execute(array(
+                ':id_paciente'=>$paciente,
+                ':erupcoes'=>$erupcoes,
+                ':nodulos'=>$nodulos,
+                ':musculatura'=>$musculatura,
+                ':cadeia'=>$cadeia,
+                ':ganglionar'=>$ganglionar,
+                ':cicatrizes'=>$cicatrizes,
+                ':assimetria_face_pescoco'=>$assimetria_face_pescoco,
+                ':exoftalmia'=>$exoftalmia,
+                ':glandulas_salivares'=>$glandulas_salivares,
+                ':labios'=>$labios,
+                ':bochechas'=>$bochechas,
+                ':espaco_retromolar'=>$espaco_retromolar,
+                ':lingua'=>$lingua,
+                ':base_lingua'=>$base_lingua,
+                ':assoalho_bucal'=>$assoalho_bucal,
+                ':palato'=>$palato,
+                ':amigdalas'=>$amigdalas,
+                ':limite_orofaringeo'=>$limite_orofaringeo,
+                ':dentes_ausentes'=>$dentes_ausentes,
+                ':dentes_supranumerarios'=>$dentes_supranumerarios,
+                ':dentes_retidos'=>$dentes_retidos,
+                ':diastema'=>$diastema,
+                ':freios'=>$freios,
+                ':erosao'=>$erosao,
+                ':hipoplasia_esmalte'=>$hipoplasia_esmalte,
+                ':manchas'=>$manchas,
+                ':induto'=>$induto,
+                ':tartaro'=>$tartaro,
+                ':retracao_gengival'=>$retracao_gengival,
+                ':gengivas'=>$gengivas,
+                ':mobilidade_dental'=>$mobilidade_dental,
+                ':oclusao'=>$oclusao,
+                ':anomalidade_fala'=>$anomalidade_fala,
+                ':higiene_oral'=>$higiene_oral,
+                ':fluxo_salivar'=>$fluxo_salivar,
+                ':outros'=>$outros,
+                ':pulso'=>$pulso,
+                ':pressao_arterial'=>$pressao_arterial,
+                ':frequencia_respiratoria'=>$frequencia_respiratoria,
+                ':temperatura'=>$temperatura,
+                ':observacoes'=>$observacoes
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editProntuario($id, $descricao,$duracao){
+        try {
+            $sql = $this->conexao->prepare("UPDATE prontuario SET descricao = :descricao, duracao_media = :duracao WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':descricao'=>$descricao,
+                ':duracao' => $duracao
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delProntuario($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM prontuario WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function visualizarProntuario($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from view_prontuario WHERE id_paciente = :id limit 1");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
         }
     }
