@@ -165,15 +165,56 @@ CREATE TABLE `institucional` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
 
 CREATE TABLE `prontuario` (
-  `id` int(10) NOT NULL,
-  `desc` varchar(255) NOT NULL COMMENT 'Descrição da consulta',
+  CREATE TABLE `prontuario` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_paciente` int(10) NOT NULL,
-  `data_cad` timestamp NULL DEFAULT NULL,
+  `data_cad` timestamp NULL DEFAULT current_timestamp(),
   `usu_cad` int(10) DEFAULT NULL,
+  `erupcoes` varchar(100) DEFAULT NULL,
+  `nodulos` varchar(100) DEFAULT NULL,
+  `musculatura` varchar(100) DEFAULT NULL,
+  `cadeia` varchar(100) DEFAULT NULL,
+  `ganglionar` varchar(100) DEFAULT NULL,
+  `cicatrizes` varchar(100) DEFAULT NULL,
+  `assimetria_face_pescoco` varchar(100) DEFAULT NULL,
+  `exoftalmia` varchar(100) DEFAULT NULL,
+  `glandulas_salivares` varchar(100) DEFAULT NULL,
+  `labios` varchar(100) DEFAULT NULL,
+  `bochechas` varchar(100) DEFAULT NULL,
+  `espaco_retromolar` varchar(100) DEFAULT NULL,
+  `lingua` varchar(100) DEFAULT NULL,
+  `base_lingua` varchar(100) DEFAULT NULL,
+  `assoalho_bucal` varchar(100) DEFAULT NULL,
+  `palato` varchar(100) DEFAULT NULL,
+  `amigdalas` varchar(100) DEFAULT NULL,
+  `limite_orofaringeo` varchar(100) DEFAULT NULL,
+  `dentes_ausentes` varchar(100) DEFAULT NULL,
+  `dentes_supranumerarios` varchar(100) DEFAULT NULL,
+  `dentes_retidos` varchar(100) DEFAULT NULL,
+  `diastema` varchar(100) DEFAULT NULL,
+  `freios` varchar(100) DEFAULT NULL,
+  `erosao` varchar(100) DEFAULT NULL,
+  `hipoplasia_esmalte` varchar(100) DEFAULT NULL,
+  `manchas` varchar(100) DEFAULT NULL,
+  `induto` varchar(100) DEFAULT NULL,
+  `tartaro` varchar(100) DEFAULT NULL,
+  `retracao_gengival` varchar(100) DEFAULT NULL,
+  `gengivas` varchar(100) DEFAULT NULL,
+  `mobilidade_dental` varchar(100) DEFAULT NULL,
+  `oclusao` varchar(100) DEFAULT NULL,
+  `anomalidade_fala` varchar(100) DEFAULT NULL,
+  `higiene_oral` varchar(100) DEFAULT NULL,
+  `fluxo_salivar` varchar(100) DEFAULT NULL,
+  `outros` varchar(100) DEFAULT NULL,
+  `pulso` varchar(100) DEFAULT NULL,
+  `pressao_arterial` varchar(100) DEFAULT NULL,
+  `frequencia_respiratoria` varchar(100) DEFAULT NULL,
+  `temperatura` varchar(100) DEFAULT NULL,
+  `observacoes` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKProntuario299457` (`id_paciente`),
-  CONSTRAINT `FKProntuario299457` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente';
+  UNIQUE KEY `id_paciente` (`id_paciente`),
+  KEY `FKProntuario299457` (`id_paciente`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente'
 
 CREATE TABLE `servicos` (
   CREATE TABLE `servicos` (
@@ -251,4 +292,92 @@ CREATE TABLE `solicitacao_horario` (
   `gravida_sim_semanas` varchar(10) DEFAULT NULL COMMENT 'Se está gravida, a quantas semanas',
   `marcado` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site'
+
+create or replace
+algorithm = UNDEFINED view `agendeseudente`.`view_prontuario` as
+select
+    `p`.`id` as `id`,
+    `p`.`amigdalas` as `amigdalas`,
+    `p`.`anomalidade_fala` as `anomalidade_fala`,
+    `p`.`assimetria_face_pescoco` as `assimetria_face_pescoco`,
+    `p`.`assoalho_bucal` as `assoalho_bucal`,
+    `p`.`base_lingua` as `base_lingua`,
+    `p`.`bochechas` as `bochechas`,
+    `p`.`cadeia` as `cadeia`,
+    `p`.`cicatrizes` as `cicatrizes`,
+    `p`.`data_cad` as `data_cad`,
+    `p`.`dentes_ausentes` as `dentes_ausentes`,
+    `p`.`dentes_retidos` as `dentes_retidos`,
+    `p`.`dentes_supranumerarios` as `dentes_supranumerarios`,
+    `p`.`diastema` as `diastema`,
+    `p`.`erosao` as `erosao`,
+    `p`.`espaco_retromolar` as `espaco_retromolar`,
+    `p`.`exoftalmia` as `exoftalmia`,
+    `p`.`fluxo_salivar` as `fluxo_salivar`,
+    `p`.`freios` as `freios`,
+    `p`.`frequencia_respiratoria` as `frequencia_respiratoria`,
+    `p`.`ganglionar` as `ganglionar`,
+    `p`.`gengivas` as `gengivas`,
+    `p`.`glandulas_salivares` as `glandulas_salivares`,
+    `p`.`higiene_oral` as `higiene_oral`,
+    `p`.`hipoplasia_esmalte` as `hipoplasia_esmalte`,
+    `p`.`induto` as `induto`,
+    `p`.`labios` as `labios`,
+    `p`.`limite_orofaringeo` as `limite_orofaringeo`,
+    `p`.`lingua` as `lingua`,
+    `p`.`manchas` as `manchas`,
+    `p`.`mobilidade_dental` as `mobilidade_dental`,
+    `p`.`musculatura` as `musculatura`,
+    `p`.`nodulos` as `nodulos`,
+    `p`.`observacoes` as `observacoes`,
+    `p`.`oclusao` as `oclusao`,
+    `p`.`outros` as `outros`,
+    `p`.`palato` as `palato`,
+    `p`.`pressao_arterial` as `pressao_arterial`,
+    `p`.`pulso` as `pulso`,
+    `p`.`retracao_gengival` as `retracao_gengival`,
+    `p`.`tartaro` as `tartaro`,
+    `p`.`temperatura` as `temperatura`,
+    `p2`.`id` as `id_paciente`,
+    `p2`.`cargo` as `cargo`,
+    `p2`.`cpf_cnpj` as `cpf_cnpj`,
+    `p2`.`data_nascimento` as `data_nascimento`,
+    `p2`.`email` as `email`,
+    `p2`.`estado_civil` as `estado_civil`,
+    `p2`.`horario_trabalho` as `horario_trabalho`,
+    `p2`.`indicacao_dr` as `indicacao_dr`,
+    `p2`.`nacionalidade` as `nacionalidade`,
+    `p2`.`naturalidade` as `naturalidade`,
+    `p2`.`nome` as `nome`,
+    `p2`.`nome_conjuge` as `nome_conjuge`,
+    `p2`.`nome_empresa` as `nome_empresa`,
+    `p2`.`nome_mae` as `nome_mae`,
+    `p2`.`nome_pai` as `nome_pai`,
+    `p2`.`nome_responsavel` as `nome_responsavel`,
+    `p2`.`pessoa` as `pessoa`,
+    `p2`.`profissao` as `profissao`,
+    `p2`.`rg_ie` as `rg_ie`,
+    `p2`.`sexo` as `sexo`,
+    `p2`.`telefone` as `telefone`,
+    `p2`.`telefone_empresa` as `telefone_empresa`,
+    `p2`.`telefone_s` as `telefone_s`,
+    `e`.`bairro` as `bairro`,
+    `e`.`cep` as `cep`,
+    `e`.`complemento` as `complemento`,
+    `e`.`descricao` as `identificacao`,
+    `e`.`logradouro` as `logradouro`,
+    `e`.`numero` as `numero`,
+    `e`.`principal` as `principal`,
+    `e2`.`descricao` as `estado`,
+    `m`.`descricao` as `descricao`
+from
+    ((((`agendeseudente`.`prontuario` `p`
+join `agendeseudente`.`paciente` `p2` on
+    (`p`.`id_paciente` = `p2`.`id`))
+join `agendeseudente`.`endereco` `e` on
+    (`e`.`id_paciente` = `p2`.`id`))
+join `agendeseudente`.`estado` `e2` on
+    (`e2`.`uf` = `e`.`uf_estado`))
+join `agendeseudente`.`municipio` `m` on
+    (`m`.`id` = `e`.`id_municipio`));
