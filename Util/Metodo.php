@@ -67,30 +67,10 @@ class Metodo extends Base
     public function editPacienteComSenha($id, $nome,$cpf_cpnj,$data_nasc,$nome_responsavel,$telefone,$telefone_s,$rg_ie,$nome_pai,$nome_mae,$email,$senha,$indicacao_dr,
                                          $nome_empresa,$telefone_empresa,$profissao,$horario_trabalho,$cargo,$naturalidade,$nacionalidade,$estado_civil,$nome_conjuge,$sexo){
         try {
-            $sql = $this->conexao->prepare("UPDATE paciente SET 
-            nome= :nome,
-            cpf_cnpj =:cpf_cpnj,
-            email =:email,
-            senha = :senha,
-            telefone =:telefone,
-            telefone_s = :telefone_s,
-            rg_ie = :rg_ie,
-            data_nascimento= :data_nascimento, 
-            nome_pai= :nome_pai, 
-            nome_mae= :nome_mae, 
-            nome_responsavel= :nome_responsavel, 
-            indicacao_dr= :indicacao_dr,
-            nome_empresa =:nome_empresa,
-            telefone_empresa =:telefone_empresa,
-            profissao =:profissao,
-            horario_trabalho = :horario_trabalho,
-            cargo = :cargo,
-            naturalidade = :naturalidade,
-            nacionalidade = :nacionalidade,
-            estado_civil = :estado_civil,
-            nome_conjuge = :nome_conjuge,
-            sexo =:sexo 
-            WHERE id = :id");
+            $sql = $this->conexao->prepare("UPDATE paciente SET nome = :nome, cpf_cnpj = :cpf_cnpj,email= :email,senha= :senha,telefone= :telefone,telefone_s= :telefone_s,
+            rg_ie= :rg_ie,data_nascimento= :data_nascimento,nome_pai= :nome_pai, nome_mae= :nome_mae, nome_responsavel= :nome_responsavel, indicacao_dr= :indicacao_dr, 
+            nome_empresa= :nome_empresa, telefone_empresa= :telefone_empresa, profissao= :profissao,horario_trabalho= :horario_trabalho, cargo= :cargo, naturalidade= :naturalidade, 
+            nacionalidade= :nacionalidade, estado_civil= :estado_civil, nome_conjuge= :nome_conjuge, sexo= :sexo WHERE id = :id");
             $sql->execute(array(
                 ':id' => $id,
                 ':nome' => $nome,
@@ -123,10 +103,10 @@ class Metodo extends Base
     public function editPaciente($id, $nome,$cpf_cpnj,$data_nasc,$nome_responsavel,$telefone,$telefone_s,$rg_ie,$nome_pai,$nome_mae,$email,$indicacao_dr,
                                  $nome_empresa,$telefone_empresa,$profissao,$horario_trabalho,$cargo,$naturalidade,$nacionalidade,$estado_civil,$nome_conjuge,$sexo){
         try {
-            $sql = $this->conexao->prepare("UPDATE paciente SET nome= :nome,cpf_cnpj =:cpf_cpnj,email =:email,telefone =:telefone,telefone_s = :telefone_s,
-            rg_ie = :rg_ie,data_nascimento =:data_nascimento, nome_pai= :nome_pai, nome_mae =:nome_mae, nome_responsavel =:nome_responsavel, indicacao_dr =:indicacao_dr,
-            nome_empresa =:nome_empresa,telefone_empresa =:telefone_empresa,profissao =:profissao,horario_trabalho = :horario_trabalho,cargo = :cargo,naturalidade = :naturalidade,
-            nacionalidade = :nacionalidade,estado_civil = :estado_civil,nome_conjuge = :nome_conjuge,sexo =:sexo WHERE id = :id");
+            $sql = $this->conexao->prepare("UPDATE paciente SET nome = :nome, cpf_cnpj = :cpf_cnpj,email= :email,telefone= :telefone,telefone_s= :telefone_s,
+            rg_ie= :rg_ie,data_nascimento= :data_nascimento,nome_pai= :nome_pai, nome_mae= :nome_mae, nome_responsavel= :nome_responsavel, indicacao_dr= :indicacao_dr, 
+            nome_empresa= :nome_empresa, telefone_empresa= :telefone_empresa, profissao= :profissao,horario_trabalho= :horario_trabalho, cargo= :cargo, naturalidade= :naturalidade, 
+            nacionalidade= :nacionalidade, estado_civil= :estado_civil, nome_conjuge= :nome_conjuge, sexo= :sexo WHERE id = :id");
             $sql->execute(array(
                 ':id' => $id,
                 ':nome' => $nome,

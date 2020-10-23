@@ -41,6 +41,6 @@ if ($senhas) {
         $nome_empresa,$telefone_empresa,$profissao,$horario_trabalho,$cargo,$naturalidade,$nacionalidade,$estado_civil, $nome_conjuge,$sexo);
 }
 
-//header("Location: ../../?page=pacientesList");
+header("Location: ../../?page=pacientesList");
 
 ?>
