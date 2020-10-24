@@ -292,7 +292,19 @@ CREATE TABLE `solicitacao_horario` (
   `gravida_sim_semanas` varchar(10) DEFAULT NULL COMMENT 'Se está gravida, a quantas semanas',
   `marcado` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site'
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site';
+
+CREATE TABLE `prontuario_historico` (
+	id INT auto_increment NOT NULL,
+	data_procedimento DATE NOT NULL,
+	dente TINYINT(2) NULL,
+	procedimento varchar(255) null,
+	PRIMARY KEY (`id`)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_general_ci;
+
 
 create or replace
 algorithm = UNDEFINED view `agendeseudente`.`view_prontuario` as

@@ -1120,4 +1120,68 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarProntuarioHistorico($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from prontuario_historico where id_prontuario = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarProntuarioHistoricoPorId($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from prontuario_historico where id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetch();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addProntuarioHistorico($data_procedimento,$dente, $procedimento, $id_prontuario){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO prontuario_historico(data_procedimento, dente, procedimento, id_prontuario) VALUES 
+            (:data_procedimento, :dente, :procedimento, :id_prontuario )");
+            $sql->execute(array(
+                ':data_procedimento'=>$data_procedimento,
+                ':dente'=>$dente,
+                ':procedimento'=>$procedimento,
+                ':id_prontuario' => $id_prontuario
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function editProntuarioHistorico($id, $data_procedimento,$dente, $procedimento){
+        try {
+            $sql = $this->conexao->prepare("UPDATE prontuario_historico SET data_procedimento = :data_procedimento, dente = :dente, procedimento = :procedimento
+            WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id,
+                ':data_procedimento'=>$data_procedimento,
+                ':dente'=>$dente,
+                ':procedimento'=>$procedimento
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delProntuarioHistorico($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM prontuario_historico WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }
