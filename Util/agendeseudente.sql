@@ -1,19 +1,19 @@
 create database agendeseudente;
 
-CREATE TABLE `grupo` (
+create or replace TABLE `grupo` (
   `id` int(10) NOT NULL,
   `nome` varchar(20) NOT NULL,
   `permissoes` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Acesso ao sistema interno';
 
-CREATE TABLE `estado` (
+create or replace TABLE `estado` (
   `uf` char(2) NOT NULL COMMENT 'SC, MG, SP exemplos',
   `descricao` varchar(35) NOT NULL COMMENT 'Nome do estado por extenso',
   PRIMARY KEY (`uf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Estado do Brasil';
 
-CREATE TABLE `municipio` (
+create or replace TABLE `municipio` (
   `id` int(10) NOT NULL COMMENT 'ID do município',
   `descricao` varchar(50) NOT NULL COMMENT 'nome por extenso do muncípio',
   `id_estado` char(2) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE `municipio` (
   CONSTRAINT `FKmunicipio419001` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`uf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cadastro dos municípios para colocar no endereço';
 
-CREATE TABLE `usuario` (
+create or replace TABLE `usuario` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Id do usuário',
   `cpf` varchar(30) NOT NULL COMMENT 'CPF do usuário',
   `nome` varchar(35) NOT NULL COMMENT 'Nome completo do usuário',
@@ -48,7 +48,7 @@ CREATE TABLE `usuario` (
   CONSTRAINT `FKUsuario845885` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Usuários da parte administrativa do site\nDentista e Auxiliar, por exemplo';
 
-CREATE TABLE `banner` (
+create or replace TABLE `banner` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Id do banner',
   `titulo` varchar(20) DEFAULT NULL,
   `descricao` varchar(90) NOT NULL COMMENT 'Título, descrição, do banner',
@@ -64,14 +64,14 @@ CREATE TABLE `banner` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Banners cadastrados no site'
 
-CREATE TABLE `procedimento` (
+create or replace TABLE `procedimento` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(255) NOT NULL,
   `duracao_media` time NOT NULL COMMENT 'Quero usar isso para fazer um cálculo automático para a hora de fim na agenda',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Procedimentos realizados';
 
-CREATE TABLE `agenda` (
+create or replace TABLE `agenda` (
   `id` int(10) NOT NULL,
   `id_paciente` int(10) DEFAULT NULL,
   `desc_evento` varchar(255) NOT NULL COMMENT 'Descrição do evento da agenda, se é reunião ou atendimento',
@@ -83,7 +83,7 @@ CREATE TABLE `agenda` (
   CONSTRAINT `FKAgenda246187` FOREIGN KEY (`id_procedimento`) REFERENCES `procedimento` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Agenda com atendimentos já marcados';
 
-CCREATE TABLE `paciente` (
+create or replace TABLE `paciente` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'ID do paciente',
   `nome` varchar(50) DEFAULT NULL COMMENT 'Nome completo do paciente',
   `cpf_cnpj` varchar(30) NOT NULL,
@@ -118,7 +118,7 @@ CCREATE TABLE `paciente` (
   UNIQUE KEY `rg_ie` (`rg_ie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente'
 
-CREATE TABLE `arquivos` (
+create or replace TABLE `arquivos` (
   `id` int(10) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `caminho_arquivo` varchar(255) NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE `arquivos` (
   CONSTRAINT `FKArquivos205079` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Arquivos salvos dos pacientes';
 
-CREATE TABLE `endereco` (
+create or replace TABLE `endereco` (
   `id` int(10) NOT NULL,
   `desc` varchar(20) NOT NULL COMMENT 'Casa, apartamento.... descrição do endereço',
   `logadouro` varchar(255) NOT NULL COMMENT 'Nome da rua, avenida, br...',
@@ -149,7 +149,7 @@ CREATE TABLE `endereco` (
   CONSTRAINT `FKEndereco905162` FOREIGN KEY (`uf_estado`) REFERENCES `estado` (`uf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Endereços dos pacientes';
 
-CREATE TABLE `institucional` (
+create or replace TABLE `institucional` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `desc` varchar(45) NOT NULL COMMENT 'titulo, tipo missão, visão, valor',
   `texto` varchar(255) DEFAULT NULL,
@@ -164,8 +164,7 @@ CREATE TABLE `institucional` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
 
-CREATE TABLE `prontuario` (
-  CREATE TABLE `prontuario` (
+create or replace TABLE `prontuario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_paciente` int(10) NOT NULL,
   `data_cad` timestamp NULL DEFAULT current_timestamp(),
@@ -216,8 +215,7 @@ CREATE TABLE `prontuario` (
   KEY `FKProntuario299457` (`id_paciente`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente'
 
-CREATE TABLE `servicos` (
-  CREATE TABLE `servicos` (
+create or replace TABLE `servicos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) NOT NULL COMMENT 'título do serviço',
   `texto` varchar(255) NOT NULL,
@@ -231,7 +229,7 @@ CREATE TABLE `servicos` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Serviços oferecidos pela clinica (cabelo, unhas, hidratação e unhas)';
 
-CREATE TABLE `site` (
+create or replace TABLE `site` (
   `id` int(1) NOT NULL AUTO_INCREMENT COMMENT 'Só vai ter um',
   `descricao_site` varchar(20) NOT NULL COMMENT 'é o título: Agende Seu Dente',
   `descricao` varchar(255) DEFAULT NULL COMMENT 'Webapp para gerenciamento de clinica com agenda',
@@ -280,7 +278,7 @@ CREATE TABLE `site` (
   CONSTRAINT `FKSite388780` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Configurações gerais do site'
 
-CREATE TABLE `solicitacao_horario` (
+create or replace TABLE `solicitacao_horario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(35) DEFAULT NULL COMMENT 'Nome da pessoa',
   `cpf_cnpj` varchar(30) NOT NULL,

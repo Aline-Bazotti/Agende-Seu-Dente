@@ -10,10 +10,11 @@ $prontuario = $metodo->buscarProntuarioPorId($historico['id_prontuario']);
 
 ?>
 
-    <h2>Editar Paciente - <?= $paciente['nome'] ?></h2>
+    <h2>Editando Histórico</h2>
     <hr />
     <form action="../admin/Prontuario/Controller/editHistorico.php" method="post">
         <input type="hidden" id="historicoId" name="historicoId" value="<?= $historico['id'] ?>">
+        <input type="hidden" id="pacienteId" name="pacienteId" value="<?= $prontuario['id_paciente'] ?>">
         <div>
             <label class="desc" id="data_procedimento" for="data_procedimento">Data</label>
             <div>

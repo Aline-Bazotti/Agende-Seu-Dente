@@ -109,7 +109,7 @@ $historicos = $metodo->buscarProntuarioHistorico($dados['id'])
                                         <td class="actions text-left">
                                             <a class="btn btn-sm btn-warning" href="?page=prontuarioHistoricoForm&historicoId=<?= $historico['id']; ?>">
                                                 <i class="fa fa-edit"></i>Editar</a>
-                                            <a class="btn btn-sm btn-danger" href="../admin/Prontuario/Controller/delHistorico.php?historicoId=<?= $historico['id']; ?>">
+                                            <a class="btn btn-sm btn-danger" href="../admin/Prontuario/Controller/delHistorico.php?historicoId=<?= $historico['id']; ?>&pacienteId=<?= $dados['id_paciente'];?>">
                                                 <i class="fa fa-trash"></i> Excluir</a>
                                         </td>
                                     </tr>
