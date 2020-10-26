@@ -1304,4 +1304,51 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function buscarArquivoPorIdPaciente($id)
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from arquivos where id_paciente = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function buscarTodosArquivos()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from arquivos");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function addArquivo($nome,$caminho_arquivo,$id_paciente){
+        try {
+            $sql = $this->conexao->prepare("INSERT INTO arquivos(nome, caminho_arquivo, id_paciente) VALUES 
+            (:nome, :caminho_arquivo, :id_paciente)");
+            $sql->execute(array(
+                ':nome'=>$nome,
+                ':caminho_arquivo' => $caminho_arquivo,
+                ':id_paciente' =>$id_paciente
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function delArquivo($id){
+        try {
+            $sql = $this->conexao->prepare("DELETE FROM arquivos WHERE id = :id");
+            $sql->execute(array(
+                ':id'=>$id
+            ));
+        }catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }

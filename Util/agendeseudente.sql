@@ -119,13 +119,12 @@ create or replace TABLE `paciente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente';
 
 create or replace TABLE `arquivos` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) DEFAULT NULL,
   `caminho_arquivo` varchar(255) NOT NULL,
   `id_paciente` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKArquivos205079` (`id_paciente`),
-  CONSTRAINT `FKArquivos205079` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`)
+  KEY `FKArquivos205079` (`id_paciente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Arquivos salvos dos pacientes';
 
 create or replace TABLE `endereco` (

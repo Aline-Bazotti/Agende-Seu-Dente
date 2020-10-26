@@ -20,7 +20,6 @@ $metodo = new Metodo();
         <link href="../css/menu.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-        <link href="css/menu.css">
         <link href="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
 
         <div class="page-wrapper chiller-theme toggled">

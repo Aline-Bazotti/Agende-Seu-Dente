@@ -10,6 +10,7 @@ $prontuario = $metodo->buscarProntuarioPorId($id);
 $historicos = $metodo->buscarProntuarioHistorico($prontuario['id']);
 $paciente = $metodo->buscarPacientePorId($prontuario['id_paciente']);
 $enderecos = $metodo->buscarEnderecoPorIdPaciente($prontuario['id_paciente']);
+$arquivos = $metodo->buscarArquivoPorIdPaciente($prontuario['id_paciente']);
 ?>
 
 <header>
@@ -26,6 +27,7 @@ $enderecos = $metodo->buscarEnderecoPorIdPaciente($prontuario['id_paciente']);
                     <li><a href="#paciente-tab" data-toggle="tab">Dados do Paciente</a></li>
                     <li><a href="#historico-tab" data-toggle="tab"> Relatório de Procedimentos</a></li>
                     <li><a href="#exame-tab" data-toggle="tab">Exame Clínico</a></li>
+                    <li><a href="#arquivo-tab" data-toggle="tab">Arquivos</a></li>
                 </ul>
 
                 <div class="tab-content clearfix">
@@ -149,7 +151,7 @@ $enderecos = $metodo->buscarEnderecoPorIdPaciente($prontuario['id_paciente']);
                         <div><label class="desc">Cicatrizes:<u><?= $prontuario['cicatrizes'] ?></u></label></div>
                         <div><label class="desc">Assimetria Face e Pescoço:<u><?= $prontuario['assimetria_face_pescoco'] ?></u></label></div>
                         <div><label class="desc">Exoftalmia:<u><?= $prontuario['exoftalmia'] ?></u></label></div>
-                        <div><label class="desc">Glândulas Salivares:<u><?= $prontuario['glandulas_salivares'] ?><u/></label></div>
+                        <div><label class="desc">Glândulas Salivares:<u><?= $prontuario['glandulas_salivares'] ?></u></label></div>
 
                         <h5 style="font-size: 22px">2) Inspeção Buco-Dentária (intra-oral)</h5>
                         <div><label class="desc">Lábios:<u><?= $prontuario['labios'] ?></u></label></div>
@@ -196,6 +198,25 @@ $enderecos = $metodo->buscarEnderecoPorIdPaciente($prontuario['id_paciente']);
                     <!-- -------------- -->
 
 
+                    <!-- -------- -->
+                    <!-- Arquivos -->
+                    <!-- -------- -->
+                    <div class="tab-pane" id="arquivo-tab">
+                        <h4 style="font-size: 26px">Arquivos</h4>
+
+                        <?php foreach($arquivos as $arquivo):?>
+                            <div class="arquivos">
+                                <label class="desc" >Download:</label>
+                                <a href="Arquivos/files/<?= $arquivo['caminho_arquivo']; ?>" download>
+                                   <?= $arquivo['caminho_arquivo']; ?>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+
+                    </div>
+                    <!-- --------- -->
+                    <!-- /Arquivos -->
+                    <!-- --------- -->
                     <br>
                 </div>
             </div>

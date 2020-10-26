@@ -482,6 +482,12 @@ body {
     padding : 10px ;
 
 }
+.arquivos a{
+    color: white;
+}
+.arquivos.a:hover{
+    color: black;
+}
 
 #exTab1 .tab-content {
     color : white;
