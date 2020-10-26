@@ -1,11 +1,11 @@
 create database agendeseudente;
 
 create or replace TABLE `grupo` (
-  `id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(20) NOT NULL,
   `permissoes` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Acesso ao sistema interno';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Acesso ao sistema interno';
 
 create or replace TABLE `estado` (
   `uf` char(2) NOT NULL COMMENT 'SC, MG, SP exemplos',
@@ -93,7 +93,7 @@ create or replace TABLE `paciente` (
   `telefone_s` int(15) DEFAULT NULL COMMENT 'telefone secundário',
   `rg_ie` varchar(30) DEFAULT NULL COMMENT 'pode ter inscrição estadual isento',
   `pessoa` char(1) NOT NULL DEFAULT 'F' COMMENT 'F- Física\nJ- Jurídica',
-  `data_cad` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `data_cad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `usu_cad` int(10) NOT NULL,
   `data_alt` timestamp NULL DEFAULT NULL,
   `usu_alt` int(10) DEFAULT NULL,
@@ -116,7 +116,7 @@ create or replace TABLE `paciente` (
   UNIQUE KEY `cpf_cnpj` (`cpf_cnpj`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `rg_ie` (`rg_ie`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente';
 
 create or replace TABLE `arquivos` (
   `id` int(10) NOT NULL,
@@ -129,9 +129,9 @@ create or replace TABLE `arquivos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Arquivos salvos dos pacientes';
 
 create or replace TABLE `endereco` (
-  `id` int(10) NOT NULL,
-  `desc` varchar(20) NOT NULL COMMENT 'Casa, apartamento.... descrição do endereço',
-  `logadouro` varchar(255) NOT NULL COMMENT 'Nome da rua, avenida, br...',
+    `id` int(10) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(20) NOT NULL COMMENT 'Casa, apartamento.... descrição do endereço',
+  `logradouro` varchar(255) NOT NULL COMMENT 'Nome da rua, avenida, br...',
   `numero` varchar(10) DEFAULT NULL COMMENT 'Número do local, pode não ter número e pode ter letra',
   `complemento` varchar(50) DEFAULT NULL,
   `cep` int(8) NOT NULL,
@@ -147,27 +147,27 @@ create or replace TABLE `endereco` (
   CONSTRAINT `FKEndereco320678` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`),
   CONSTRAINT `FKEndereco485207` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id`),
   CONSTRAINT `FKEndereco905162` FOREIGN KEY (`uf_estado`) REFERENCES `estado` (`uf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Endereços dos pacientes';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Endereços dos pacientes';
 
 create or replace TABLE `institucional` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `desc` varchar(45) NOT NULL COMMENT 'titulo, tipo missão, visão, valor',
+   `id` int(10) NOT NULL AUTO_INCREMENT,
+  `descricao` varchar(45) NOT NULL COMMENT 'titulo, tipo missão, visão, valor',
   `texto` varchar(255) DEFAULT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   `status` tinyint(4) NOT NULL COMMENT '1 - Publicado\n0 - Inativo',
   `inicial` tinyint(4) NOT NULL COMMENT '1 - Sim\n0 - Não',
   `slug` varchar(45) DEFAULT NULL,
   `usu_cad` int(10) NOT NULL,
-  `data_cad` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `data_cad` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `usu_alt` int(10) DEFAULT NULL,
   `data_alt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
 
 create or replace TABLE `prontuario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_paciente` int(10) NOT NULL,
-  `data_cad` timestamp NULL DEFAULT current_timestamp(),
+  `data_cad` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `usu_cad` int(10) DEFAULT NULL,
   `erupcoes` varchar(100) DEFAULT NULL,
   `nodulos` varchar(100) DEFAULT NULL,
@@ -210,10 +210,42 @@ create or replace TABLE `prontuario` (
   `frequencia_respiratoria` varchar(100) DEFAULT NULL,
   `temperatura` varchar(100) DEFAULT NULL,
   `observacoes` varchar(100) DEFAULT NULL,
+  `18` varchar(255) DEFAULT NULL,
+  `17` varchar(255) DEFAULT NULL,
+  `16` varchar(255) DEFAULT NULL,
+  `15_55` varchar(255) DEFAULT NULL,
+  `14_54` varchar(255) DEFAULT NULL,
+  `13_53` varchar(255) DEFAULT NULL,
+  `12_52` varchar(255) DEFAULT NULL,
+  `11_51` varchar(255) DEFAULT NULL,
+  `21_61` varchar(255) DEFAULT NULL,
+  `22_62` varchar(255) DEFAULT NULL,
+  `23_63` varchar(255) DEFAULT NULL,
+  `24_64` varchar(255) DEFAULT NULL,
+  `25_65` varchar(255) DEFAULT NULL,
+  `26` varchar(255) DEFAULT NULL,
+  `27` varchar(255) DEFAULT NULL,
+  `28` varchar(255) DEFAULT NULL,
+  `38` varchar(255) DEFAULT NULL,
+  `37` varchar(255) DEFAULT NULL,
+  `36` varchar(255) DEFAULT NULL,
+  `35_75` varchar(255) DEFAULT NULL,
+  `34_74` varchar(255) DEFAULT NULL,
+  `33_73` varchar(255) DEFAULT NULL,
+  `32_72` varchar(255) DEFAULT NULL,
+  `31_71` varchar(255) DEFAULT NULL,
+  `41_81` varchar(255) DEFAULT NULL,
+  `42_82` varchar(255) DEFAULT NULL,
+  `43_83` varchar(255) DEFAULT NULL,
+  `44_84` varchar(255) DEFAULT NULL,
+  `45_85` varchar(255) DEFAULT NULL,
+  `46` varchar(255) DEFAULT NULL,
+  `47` varchar(255) DEFAULT NULL,
+  `48` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_paciente` (`id_paciente`),
   KEY `FKProntuario299457` (`id_paciente`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente';
 
 create or replace TABLE `servicos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -292,16 +324,14 @@ create or replace TABLE `solicitacao_horario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site';
 
-CREATE TABLE `prontuario_historico` (
-	id INT auto_increment NOT NULL,
-	data_procedimento DATE NOT NULL,
-	dente TINYINT(2) NULL,
-	procedimento varchar(255) null,
-	PRIMARY KEY (`id`)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_general_ci;
+CREATE or replace TABLE `prontuario_historico` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `data_procedimento` date NOT NULL,
+  `dente` tinyint(2) DEFAULT NULL,
+  `procedimento` varchar(255) DEFAULT NULL,
+  `id_prontuario` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 
 
 create or replace
