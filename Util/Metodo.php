@@ -673,11 +673,11 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
-    public function addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas){
+    public function addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone){
         try {
             $sql = $this->conexao->prepare("
-            INSERT INTO solicitacao_horario(nome, cpf_cnpj, descricao, data_nascimento, sente_dor, quanto_tempo, gravidez, gravida_sim_semanas) 
-            VALUES (:nome, :cpf_cpnj, :descricao, :data_nascimento, :dor, :quanto_tempo, :gestante, :semanas)");
+            INSERT INTO solicitacao_horario(nome, cpf_cnpj, descricao, data_nascimento, sente_dor, quanto_tempo, gravidez, gravida_sim_semanas, telefone) 
+            VALUES (:nome, :cpf_cpnj, :descricao, :data_nascimento, :dor, :quanto_tempo, :gestante, :semanas, :telefone)");
             $sql->execute(array(
                 ':nome'=>$nome,
                 ':cpf_cpnj' => $cpf_cpnj,
@@ -686,7 +686,8 @@ class Metodo extends Base
                 ':dor' => $dor,
                 ':quanto_tempo' => $quanto_tempo,
                 ':gestante' => $gestante,
-                ':semanas' => $semanas
+                ':semanas' => $semanas,
+                ':telefone' => $telefone
             ));
         }catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();

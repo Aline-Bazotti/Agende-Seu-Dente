@@ -23,6 +23,10 @@ $solicitacoes = $metodo->buscarSolicitacaoUsuario();
                                     <label for="">Data de Nascimento</label>
                                     <p><?= $solicitacao['data_nascimento']; ?></p>
                                 </div>
+                                <div class="col-sm-6">
+                                    <label>Telefone</label>
+                                    <p><?= $solicitacao['telefone']; ?></p>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">

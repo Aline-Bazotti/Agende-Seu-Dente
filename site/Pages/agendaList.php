@@ -8,7 +8,7 @@
         <div class="questions">
             <form action="../site/Agenda/addEvento.php" method="post">
                 <div class="form-group">
-                    <label for="anamnese" class="col-sm-5 control-label">Nome</label>
+                    <label for="anamnese" class="col-sm-5 control-label">Nome*</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo" required="required">
                     </div>
@@ -20,9 +20,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="anamnese" class="col-sm-5 control-label">Data de Nascimento</label>
+                    <label for="anamnese" class="col-sm-5 control-label">Data de Nascimento*</label>
                     <div class="col-sm-7">
                         <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="anamnese" class="col-sm-5 control-label">Telefone para contato*</label>
+                    <div class="col-sm-7">
+                        <input type="tel" class="form-control" id="telefone" name="telefone" required="required">
                     </div>
                 </div>
                 <div class="form-group">
@@ -35,7 +41,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="anamnese" class="col-sm-5 control-label">Descreva brevemente seus sintomas</label>
+                    <label for="anamnese" class="col-sm-5 control-label">Descreva brevemente seus sintomas*</label>
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="desc" name="desc" required="required">
                     </div>

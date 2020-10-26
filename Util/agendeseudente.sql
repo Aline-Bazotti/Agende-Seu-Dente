@@ -5,7 +5,7 @@ create or replace TABLE `grupo` (
   `nome` varchar(20) NOT NULL,
   `permissoes` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Acesso ao sistema interno';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Acesso ao sistema interno';
 
 create or replace TABLE `estado` (
   `uf` char(2) NOT NULL COMMENT 'SC, MG, SP exemplos',
@@ -46,7 +46,7 @@ create or replace TABLE `usuario` (
   UNIQUE KEY `data_nascimento` (`data_nascimento`),
   KEY `FKUsuario845885` (`id_grupo`),
   CONSTRAINT `FKUsuario845885` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Usuários da parte administrativa do site\nDentista e Auxiliar, por exemplo';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Usuários da parte administrativa do site\nDentista e Auxiliar, por exemplo';
 
 create or replace TABLE `banner` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'Id do banner',
@@ -69,7 +69,7 @@ create or replace TABLE `procedimento` (
   `descricao` varchar(255) NOT NULL,
   `duracao_media` time NOT NULL COMMENT 'Quero usar isso para fazer um cálculo automático para a hora de fim na agenda',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Procedimentos realizados';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Procedimentos realizados';
 
 create or replace TABLE `agenda` (
   `id` int(10) NOT NULL,
@@ -116,7 +116,7 @@ create or replace TABLE `paciente` (
   UNIQUE KEY `cpf_cnpj` (`cpf_cnpj`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `rg_ie` (`rg_ie`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Dados sobre o paciente';
 
 create or replace TABLE `arquivos` (
   `id` int(10) NOT NULL,
@@ -147,7 +147,7 @@ create or replace TABLE `endereco` (
   CONSTRAINT `FKEndereco320678` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`),
   CONSTRAINT `FKEndereco485207` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id`),
   CONSTRAINT `FKEndereco905162` FOREIGN KEY (`uf_estado`) REFERENCES `estado` (`uf`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='Endereços dos pacientes';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Endereços dos pacientes';
 
 create or replace TABLE `institucional` (
    `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -162,7 +162,7 @@ create or replace TABLE `institucional` (
   `usu_alt` int(10) DEFAULT NULL,
   `data_alt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='sobre a empresa';
 
 create or replace TABLE `prontuario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -245,7 +245,7 @@ create or replace TABLE `prontuario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_paciente` (`id_paciente`),
   KEY `FKProntuario299457` (`id_paciente`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Prontuário do paciente';
 
 create or replace TABLE `servicos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -308,7 +308,7 @@ create or replace TABLE `site` (
   KEY `FKSite388780` (`id_municipio`),
   CONSTRAINT `FKSite192440` FOREIGN KEY (`uf_estado`) REFERENCES `estado` (`uf`),
   CONSTRAINT `FKSite388780` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Configurações gerais do site'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Configurações gerais do site';
 
 create or replace TABLE `solicitacao_horario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -321,8 +321,9 @@ create or replace TABLE `solicitacao_horario` (
   `gravidez` tinyint(4) DEFAULT NULL COMMENT '1 - Sim\n2 - Não',
   `gravida_sim_semanas` varchar(10) DEFAULT NULL COMMENT 'Se está gravida, a quantas semanas',
   `marcado` tinyint(4) NOT NULL DEFAULT 0,
+  `telefone` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Isso aqui é pro front, pro paciente no site';
 
 CREATE or replace TABLE `prontuario_historico` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -331,4 +332,4 @@ CREATE or replace TABLE `prontuario_historico` (
   `procedimento` varchar(255) DEFAULT NULL,
   `id_prontuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
