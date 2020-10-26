@@ -6,15 +6,14 @@ if (empty($id)) {
     exit;
 }
 $historico = $metodo->buscarProntuarioHistoricoPorId($id);
-$prontuario = $metodo->buscarProntuarioPorId($historico['id_prontuario']);
 
 ?>
 
     <h2>Editando Histórico</h2>
     <hr />
     <form action="../admin/Prontuario/Controller/editHistorico.php" method="post">
-        <input type="hidden" id="historicoId" name="historicoId" value="<?= $historico['id'] ?>">
-        <input type="hidden" id="pacienteId" name="pacienteId" value="<?= $prontuario['id_paciente'] ?>">
+        <input type="hidden" id="historicoId" name="historicoId" value="<?= $historico['id']; ?>">
+        <input type="hidden" id="prontuarioId" name="prontuarioId" value="<?= $historico['id_prontuario'] ?>">
         <div>
             <label class="desc" id="data_procedimento" for="data_procedimento">Data</label>
             <div>

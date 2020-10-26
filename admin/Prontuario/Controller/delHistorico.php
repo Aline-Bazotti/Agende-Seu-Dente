@@ -3,7 +3,7 @@ require "../../../Util/Metodo.php";
 $metodo = new Metodo();
 
 $id = isset($_GET['historicoId']) ? $_GET['historicoId'] : null;
-$paciente = isset($_GET['pacienteId']) ? $_GET['pacienteId'] : null;
+$prontuario = isset($_GET['prontuarioId']) ? $_GET['prontuarioId'] : null;
 
 if (empty($id)) {
     echo "Pedido inválido.";
@@ -12,6 +12,6 @@ if (empty($id)) {
 
 $metodo->delProntuarioHistorico($id);
 
-header("Location: ../../?page=viewProntuario&pacienteId=$paciente");
+header("Location: ../../?page=viewProntuario&id=$prontuario");
 
 ?>

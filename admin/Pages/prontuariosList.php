@@ -37,7 +37,7 @@ $dados = $metodo->buscarProntuarios();
                 <td class="actions text-left">
                     <a class="btn btn-sm btn-info" href="?page=prontuarioHistoricoCadastro&prontuarioId=<?= $prontuario['id']; ?>">
                         <i class="fa fa-list"></i>Adicionar Histórico</a>
-                    <a class="btn btn-sm btn-success" href="?page=viewProntuario&pacienteId=<?= $prontuario['id_paciente']; ?>">
+                    <a class="btn btn-sm btn-success" href="?page=viewProntuario&id=<?= $prontuario['id']; ?>">
                         <i class="fa fa-eye"></i>Ver</a>
                     <a class="btn btn-sm btn-warning" href="?page=prontuarioForm&prontuarioId=<?= $prontuario['id']; ?>">
                         <i class="fa fa-edit"></i>Editar</a>
