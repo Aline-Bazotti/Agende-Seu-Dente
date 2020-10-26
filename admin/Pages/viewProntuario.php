@@ -172,10 +172,10 @@ $historicos = $metodo->buscarProntuarioHistorico($dados['id'])
                         <div><label class="desc">Outros:<u><?= $dados['outros'] ?></u></label></div>
 
                         <h5 style="font-size: 22px">3) Sinais Vitais</h5>
-                        <div><label class="desc">Pulso:<u><?= $dados['pulso'] ?></u>Normal 60 a 90 bpm</label></div>
-                        <div><label class="desc">Pressão Arterial:<u><?= $dados['pressao_arterial'] ?></u>Normal <= 90 Hg/130mm Hg</label></div>
-                        <div><label class="desc">Frequência Respiratória:<u><?= $dados['frequencia_respiratoria'] ?></u>Normal 15 a 20 mov/min</label></div>
-                        <div><label class="desc">Temperatura:<u><?= $dados['temperatura'] ?></u>Normal 36,8 + 0,2ºC</label></div>
+                        <div><label class="desc">Pulso:<u><?= $dados['pulso'] ?></u> - Normal 60 a 90 bpm</label></div>
+                        <div><label class="desc">Pressão Arterial:<u><?= $dados['pressao_arterial'] ?></u> - Normal <= 90 Hg/130mm Hg</label></div>
+                        <div><label class="desc">Frequência Respiratória:<u><?= $dados['frequencia_respiratoria'] ?></u> - Normal 15 a 20 mov/min</label></div>
+                        <div><label class="desc">Temperatura:<u><?= $dados['temperatura'] ?></u> - Normal 36,8 + 0,2ºC</label></div>
 
                         <h5 style="font-size: 22px">4) Radiografias</h5>
                         <h5 style="font-size: 18px">Paciente trouxe radiografias?Quais?</h5>
