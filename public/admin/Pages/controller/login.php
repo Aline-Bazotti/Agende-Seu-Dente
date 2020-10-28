@@ -31,6 +31,7 @@ $_SESSION['user_id'] = $user['id'];
 $_SESSION['user_name'] = $user['nome'];
 $_SESSION['user_group'] = $user['id_grupo'];
 
+
 var_dump($_SESSION);
 
-//header('Location: http://localhost/admin');
+header('Location: http://localhost/admin');

@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
 
     <!-- Bootstrap core CSS -->
-    <link href="../../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         .bd-placeholder-img {
@@ -35,11 +35,11 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="../../css/signin.css" rel="stylesheet">
+    <link href="../css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<form class="form-signin" action="controller/login.php" method="post">
-    <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+<form class="form-signin" action="Pages/controller/login.php" method="post">
+    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Por favor faça o login</h1>
     <label for="inputEmail" class="sr-only">Endereço de E-mail</label>
     <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Endereço de E-mail" required autofocus>

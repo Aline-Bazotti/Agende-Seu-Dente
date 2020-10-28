@@ -133,6 +133,9 @@ $metodo = new Metodo();
                     } else {
                         include("pages/agendaList.php");
                     }
+
+
+                    var_dump($_COOKIE);
                     ?>
                 </div> <!-- /container -->
             </main>
