@@ -30,7 +30,6 @@
                 <option value="systemAdmin">System Admin</option>
                 <option value="dentista">Dentista</option>
                 <option value="auxiliar">Auxiliar</option>
-                <option value="paciente">Paciente</option>
             </select>
         </div>
     </div>

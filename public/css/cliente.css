@@ -1,0 +1,89 @@
+
+.horizontal-flip .magic-box{
+    color: #fff;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    overflow: hidden;
+    margin-bottom: 30px;
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+}
+.horizontal-flip .magic-box, .horizontal-flip .magic-box .magic-box-content, .horizontal-flip .magic-box .magic-box-cover{ height: 297px; }
+.horizontal-flip .magic-box-content, .horizontal-flip .magic-box-cover{
+    width:100%;
+    padding:10px;
+}
+
+.horizontal-flip .magic-box.active>.flipper, .horizontal-flip .magic-box.active>.flipper, .horizontal-flip .magic-box:hover>.flipper {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transition: -webkit-transform 1s;
+    transition: -webkit-transform 1s;
+    transition: transform 1s;
+    transition: transform 1s, -webkit-transform 1s;
+}
+
+.horizontal-flip .magic-box-cover{
+    display:table;
+    vertical-align:middle;
+    z-index: 2;
+    /* for firefox 31 */
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+.horizontal-flip .magic-box-content {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    display:table;
+}
+.horizontal-flip .industry img{
+    display:block;
+    margin:0 auto;
+}
+.horizontal-flip .magic-box-content .industry{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.horizontal-flip .magic-box-cover .industry{
+    display:table-cell;
+    vertical-align:middle;
+}
+.horizontal-flip .flipper{
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+
+}
+
+.horizontal-flip .magic-box-cover, .horizontal-flip .magic-box-content{
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.horizontal-flip .magic-box-cover:after, .horizontal-flip .magic-box-content:after{
+    content: "\f021";
+    display: block;
+    font: 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    background: #fff;
+    border-radius: 100%;
+    position:absolute;
+    right:10px;
+    padding: 5px;
+    height: 23px;
+    width: 23px;
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

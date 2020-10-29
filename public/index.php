@@ -70,12 +70,12 @@ $metodo = new Metodo();
             </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
-            <a href="/public/adminc/admin/Login/login.php">
+            <a href="/admin/login.php">
                 <button class="btn btn-outline-info my-2 my-sm-0" type="button">Admin</button>
             </a>
         </form>
         <form class="form-inline mt-2 mt-md-0">
-            <a href="/public/siteic/site/Login/login.php">
+            <a href="/site/Login/login.php">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="button" >Login Paciente</button>
             </a>
         </form>

@@ -26,12 +26,13 @@ if (count($users) <= 0) {
 $user = $users[0];
 
 session_start();
-$_SESSION['logged_in'] = true;
-$_SESSION['user_id'] = $user['id'];
-$_SESSION['user_name'] = $user['nome'];
-$_SESSION['user_group'] = $user['id_grupo'];
+$_SESSION['logged_in'] = array(
+    'logged_in' => true,
+    'user_id' => $user['id'],
+    'user_name' => $user['nome'],
+    'user_group' => $user['id_grupo']
+);
 
 
-var_dump($_SESSION);
 
 header('Location: http://localhost/admin');
