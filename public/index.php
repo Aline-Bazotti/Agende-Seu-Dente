@@ -75,7 +75,7 @@ $metodo = new Metodo();
             </a>
         </form>
         <form class="form-inline mt-2 mt-md-0">
-            <a href="/site/Login/login.php">
+            <a href="/site/login.php">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="button" >Login Paciente</button>
             </a>
         </form>

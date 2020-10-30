@@ -77,7 +77,8 @@ $grupo = $metodo->buscarGrupoPorId($usuario['user_group']);
                                         <li class="header-menu"><span>Extra</span></li>
                                         <li><a href="?page=usuariosList"><i class="fa fa-user"></i><span>Usuários</span></a></li>
                                         <?php break;
-                                    default:header("Location: /areaCliente.php?id=".$usuario['user_id']);
+                                    default:
+                                        header("Location: /admin/login.php");
                                 }
                             ?>
                         </ul>
@@ -86,7 +87,7 @@ $grupo = $metodo->buscarGrupoPorId($usuario['user_group']);
                 </div>
                 <!-- sidebar-content  -->
                 <div class="sidebar-footer">
-                    <a href="?page=login">
+                    <a href="../Util/logout.php">
                         <i class="fa fa-power-off"></i>
                     </a>
                 </div>

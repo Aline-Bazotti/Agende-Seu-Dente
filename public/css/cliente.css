@@ -87,3 +87,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.logout{
+    display: block;
+    margin-top: 20px;
+    margin-right: 20px;
+}

@@ -26,12 +26,11 @@ if (count($users) <= 0) {
 $user = $users[0];
 
 session_start();
-$_SESSION['logged_in'] = array(
+$_SESSION['logged'] = array(
     'logged_in' => true,
     'user_id' => $user['id'],
     'user_name' => $user['nome']
 );
 
 
-
-header('Location: http://localhost/admin');
+header('Location: http://localhost/site/areaCliente.php');
