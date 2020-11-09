@@ -23,11 +23,11 @@ if ($_FILES["imagem"]["tmp_name"]) {
         exit();
     } else {
         list($width, $height, $type, $attr) = getimagesize($_FILES["imagem"]["tmp_name"]);
-        if ($width > 1500) {
+        if ($width > 1900) {
             header("Location:../../?page=bannersList&erro=2");
             exit();
         } else {
-            if ($height > 1500) {
+            if ($height > 1900) {
                 header("Location:../../?page=bannersList&erro=4");
                 exit();
             } else {
@@ -46,7 +46,7 @@ if ($erro == "") {
         echo "Selecione somente imagens em .jpg, .png, .gif.";
     }
     if ($erro == "2") {
-        echo "A imagem não pode ultrapassar os 1500px da largura.";
+        echo "A imagem não pode ultrapassar os 1900px da largura.";
     }
     if ($erro == "4") {
         echo "A imagem não pode ultrapassar os 1500px da altura.";

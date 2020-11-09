@@ -22,7 +22,7 @@ $qtd_slide = $metodo->qtdBanners();
                     $active = "active";
                 }?>
                 <div class="carousel-item <?= $active; ?>" >
-                    <img src="../admin/Banner/img/<?= $banner['imagem']; ?>" width="1350" height="512">
+                    <img src="../admin/Banner/img/<?= $banner['imagem']; ?>" width="1900" height="512">
                     <div class="container">
                         <div class="carousel-caption text-left">
                             <h1><?php echo $banner['titulo']; ?></h1>

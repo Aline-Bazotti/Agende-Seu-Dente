@@ -332,3 +332,51 @@ CREATE or replace TABLE `prontuario_historico` (
   `id_prontuario` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Inserts*/
+
+--Banner--
+INSERT INTO agendeseudente.banner
+(id, titulo, descricao, botao, imagem, ordem, status, usu_cad, data_cad, usu_alt, data_alt, botaoLink)
+VALUES(1, 'Agenda Online', 'Agende seu horário pelo site, sem precisar ligar', 'Clique aqui', 'banner1.png', 1, 1, '', '2020-11-09 16:44:12.0', NULL, NULL, 'http://localhost/?page=agendaList');
+INSERT INTO agendeseudente.banner
+(id, titulo, descricao, botao, imagem, ordem, status, usu_cad, data_cad, usu_alt, data_alt, botaoLink)
+VALUES(4, 'Atendimento especial', 'O atendimento que você merece com a qualidade que você procura', '', 'banner2.png', 2, 1, '', '2020-11-09 16:36:18.0', NULL, NULL, '');
+
+--Grupo--
+INSERT INTO agendeseudente.grupo
+(id, nome, permissoes)
+VALUES(1, 'System Admin', 'systemAdmin');
+INSERT INTO agendeseudente.grupo
+(id, nome, permissoes)
+VALUES(2, 'Dentista', 'dentista');
+INSERT INTO agendeseudente.grupo
+(id, nome, permissoes)
+VALUES(3, 'Auxiliar', 'auxiliar');
+
+--Site--
+INSERT INTO agendeseudente.site
+(id, descricao_site, descricao, logotipo, palavra_chave, email, email_contato, email_trabalhe, url, logradouro, numero, complemento, bairro, id_municipio, uf_estado, cep, telefone, telefone_s, twitter, facebook, youtube, linkedin, gm_latitude, gm_longitude, gm_tipo, ga_email, ga_senha, ga_perfil, online, mensagem_off, whitelist, blacklist, email_tipo, email_seguranca, email_servidor, email_protocolo, email_smtp, email_usuario, email_senha, email_porta, midia_mimetype)
+VALUES(1, 'Agende Seu Dente', 'Site para agendamento de consultas odontológicas', 'logotipo.jpeg', 'agenda, dentista', 'aline@yahoo.com.br', '', '', '', 'Rua Marechal Bormann', 1275, '', 'Centro', 1, 'SC', NULL, 0, 0, '', '', '', '', 0, 0, '', '', '', '', 1, 'Estamos Off', '', '', '', '', '', '', '', '', '', '', '');
+
+--Serviços--
+INSERT INTO agendeseudente.servicos
+(id, descricao, texto, status, imagem, usu_cad, data_cad, usu_alt, data_alt, inicial)
+VALUES(1, 'Odontopediatria', 'Tratamento dentário para as primeiras idades', 1, 'odontopediatria.jpg', 0, '2020-11-09 11:55:54.0', NULL, NULL, 1);
+INSERT INTO agendeseudente.servicos
+(id, descricao, texto, status, imagem, usu_cad, data_cad, usu_alt, data_alt, inicial)
+VALUES(2, 'Profilaxia', 'Limpeza completa nos dentes', 1, 'profilaxia.jpg', 0, '2020-11-09 14:13:44.0', NULL, NULL, 1);
+INSERT INTO agendeseudente.servicos
+(id, descricao, texto, status, imagem, usu_cad, data_cad, usu_alt, data_alt, inicial)
+VALUES(3, 'Canal', 'Tratamento de canal', 1, 'canal.jpeg', 0, '2020-11-09 15:32:54.0', NULL, NULL, 0);
+
+--Institucional--
+INSERT INTO agendeseudente.institucional
+(id, descricao, texto, imagem, status, inicial, slug, usu_cad, data_cad, usu_alt, data_alt)
+VALUES(1, 'Missão', 'missão, missão, missão', 'missao.png', 1, 1, NULL, 0, '2020-11-09 11:44:33.0', NULL, NULL);
+INSERT INTO agendeseudente.institucional
+(id, descricao, texto, imagem, status, inicial, slug, usu_cad, data_cad, usu_alt, data_alt)
+VALUES(3, 'Visão', 'visão, visão, visão', 'visao.png', 1, 1, NULL, 0, '2020-11-09 11:45:08.0', NULL, NULL);
+INSERT INTO agendeseudente.institucional
+(id, descricao, texto, imagem, status, inicial, slug, usu_cad, data_cad, usu_alt, data_alt)
+VALUES(4, 'Valores', 'valores, valores, valores', 'valores.png', 1, 1, NULL, 0, '2020-11-09 11:45:25.0', NULL, NULL);

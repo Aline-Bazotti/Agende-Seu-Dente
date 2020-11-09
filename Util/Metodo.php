@@ -22,7 +22,7 @@ class Metodo extends Base
     public function LoginAdmin($email, $senha)
     {
         try {
-            $sql = $this->conexao->prepare("SELECT id, nome,id_grupo FROM usuario WHERE email = :email AND senha = :senha");
+            $sql = $this->conexao->prepare("SELECT id, nome,id_grupo FROM usuario WHERE email = :email AND senha = :senha and status = 1");
             $sql->execute(array(
                 ':email' => $email,
                 ':senha' => $senha

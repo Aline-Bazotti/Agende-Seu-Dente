@@ -60,13 +60,13 @@ $solicitacoes = $metodo->buscarSolicitacaoUsuario();
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <form action="http://localhost/admin/Agenda/Solicitacao_Usuario/marcarOuApagarHorario.php" method="post">
+                                    <form action="http://localhost/admin/Agenda/marcarOuApagarHorario.php" method="post">
                                         <input id="marcar" name="marcar" hidden="hidden" value="<?= $solicitacao['id']; ?>">
                                         <button class="btn btn-sm btn-success" type="submit" ><i class="fa fa-check"></i>Marcado</button>
                                     </form>
                                 </div>
                                 <div class="col-sm-6">
-                                    <form action="http://localhost/admin/Agenda/Solicitacao_Usuario/marcarOuApagarHorario.php" method="post">
+                                    <form action="http://localhost/admin/Agenda/marcarOuApagarHorario.php" method="post">
                                         <input id="apagar" name="apagar" hidden="hidden" value="<?= $solicitacao['id']; ?>">
                                         <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i> Apagar</button>
                                     </form>

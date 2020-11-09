@@ -6,17 +6,18 @@ final class Conexao
     private function __construct(){}
     private function __clone(){}
 
+
     // método de conexão
     public static function conectar() {
         if (!isset(self::$instance)) {
+            // Use a Data source name (DSN) to connect to Cloud SQL through the proxy
+            $dsn = 'mysql:host=localhost;port=3306;dbname=agendeseudente';
+            // Instantiate your DB using the DSN, username, and password
+            $dbUser = 'root';
+            $dbPass = '';
             // conexão não existe, então cria
             try {
-                self::$instance = new PDO('mysql:
-                host=35.199.79.53;
-                dbname=agendeseudente;
-                charset=utf8', 'root',
-                    'qutf41Ja1898xlGJ'
-                );
+                self::$instance = new PDO($dsn, $dbUser, $dbPass);
                 self::$instance->setAttribute(
                     PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION
                 );
