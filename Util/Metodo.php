@@ -1379,4 +1379,48 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
+    public function relatorio1()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from solicitacao_horario where marcado=1");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function relatorio2()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from solicitacao_horario where marcado=0");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function relatorio3()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from solicitacao_horario where data_nascimento > '2012-01-01'");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
+    public function relatorio4()
+    {
+        try {
+            $sql = $this->conexao->prepare("select * from solicitacao_horario where data_nascimento < '1960-01-01'");
+            $sql->execute();
+            $dados = $sql->fetchAll();
+            return $dados;
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+        }
+    }
 }

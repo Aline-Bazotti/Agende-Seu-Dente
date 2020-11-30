@@ -54,6 +54,11 @@ $grupo = $metodo->buscarGrupoPorId($usuario['user_group']);
                                         <li><a href="?page=siteList"><i class="fa fa-window-maximize"></i><span>Site</span></a></li>
                                         <li><a href="?page=usuariosList"><i class="fa fa-user"></i><span>Usuários</span></a></li>
                                         <li><a href="?page=gruposList"><i class="fa fa-address-book"></i><span>Grupos</span></a></li>
+                                        <li class="header-menu"><span>Relatórios</span></li>
+                                        <li><a href="?page=relatorio1"><span>-Pacientes Marcados</span></a></li>
+                                        <li><a href="?page=relatorio2"><span>-Horários a Marcar</span></a></li>
+                                        <li><a href="?page=relatorio3"><span>-Crianças Atendidas</span></a></li>
+                                        <li><a href="?page=relatorio4"><span>-Idosos Atendidos</span></a></li>
                                         <?php break;
                                     case 'auxiliar': ?>
                                         <li class="header-menu"><span>Geral</span></li>
