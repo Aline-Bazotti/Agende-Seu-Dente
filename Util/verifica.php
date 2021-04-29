@@ -7,6 +7,6 @@ if(!isset($_SESSION['logged_in']))
 {
 // Usuário não logado! Redireciona para a página de login
 	session_destroy();
-	header("Location: http://localhost/");
+	header("Location: https://$_SERVER[SERVER_NAME]");
 }
 ?> 

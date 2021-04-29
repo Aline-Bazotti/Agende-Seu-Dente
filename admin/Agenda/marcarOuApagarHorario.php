@@ -10,5 +10,5 @@ if (isset($_POST['apagar'])){
     $id = $_POST['apagar'];
     $metodo->apagarHorario($id);
 }
-header("Location: http://localhost/admin/?page=agendaList");
+header("Location: ../?page=agendaList");
 ?>

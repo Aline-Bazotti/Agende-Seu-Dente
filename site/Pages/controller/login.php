@@ -33,4 +33,4 @@ $_SESSION['logged'] = array(
 );
 
 
-header('Location: http://localhost/site/areaCliente.php');
+header("Location: https://$_SERVER[SERVER_NAME]/site/areaCliente.php");

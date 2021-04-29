@@ -6,7 +6,7 @@ session_start();
 if (isset($_SESSION['logged'])) {
     $usuario = $_SESSION['logged'];
 } else{
-    header('Location: http://localhost/site/login.php');
+    header('Location: ../site/login.php');
 }
 $dados = $metodo->buscarPacientePorId($usuario['user_id']);
 $arquivos = $metodo->buscarArquivoPorIdPaciente($usuario['user_id']);

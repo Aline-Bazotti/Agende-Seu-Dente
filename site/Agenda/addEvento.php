@@ -20,6 +20,6 @@ if (empty($nome) || empty($data_nascimento)) {
 
 $metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone);
 
-header("Location: http://localhost/?page=agendaList");
+header("Location: https://$_SERVER[SERVER_NAME]/?page=agendaList");
 ?>
 

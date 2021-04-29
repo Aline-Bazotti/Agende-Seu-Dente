@@ -19,5 +19,5 @@ if (ini_get("session.use_cookies")) {
 // Por último, destrói a sessão
 session_destroy();
 
-header("Location: http://localhost/");
+header("Location: https://$_SERVER[SERVER_NAME]");
 ?>

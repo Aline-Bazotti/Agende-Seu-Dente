@@ -35,4 +35,4 @@ $_SESSION['logged_in'] = array(
 
 
 
-header('Location: http://localhost/admin');
+header('Location: ../../');
