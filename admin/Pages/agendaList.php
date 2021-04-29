@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6 text-center h2">
             <a class="btn btn-info" target="_blank"
-               href="https://calendar.google.com/calendar/u/6?cid=Y19na29zdWZsNDlpamdhZDhwdTFsZzFyMHBoa0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t">
+               href="https://calendar.google.com/calendar/u/0?cid=a2VpbGFiYXpvdHRpQGdtYWlsLmNvbQ">
                 <i class="fa fa-book"></i> Agendar
             </a>
         </div>
