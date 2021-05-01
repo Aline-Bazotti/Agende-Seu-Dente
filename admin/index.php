@@ -101,14 +101,14 @@ $grupo = $metodo->buscarGrupoPorId($usuario['user_group']);
                 <div class="container">
                     <?php
                     if(isset($_GET['page'])) {
-                        $pgAtual = $_GET['page'];
-                        if(file_exists("pages/".$pgAtual.".php")) {
-                            include("pages/".$pgAtual.".php");
+                        $pgAtual = $_GET['page'] . '.php';
+                        if(file_exists("Pages/".$pgAtual)) {
+                            include("Pages/".$pgAtual);
                         } else {
-                            include("pages/404.php");
+                            include("Pages/404.php");
                         }
                     } else {
-                        include("pages/agendaList.php");
+                        include("Pages/agendaList.php");
                     }
                     ?>
                 </div> <!-- /container -->

@@ -11,10 +11,10 @@ final class Conexao
     public static function conectar() {
         if (!isset(self::$instance)) {
             // Use a Data source name (DSN) to connect to Cloud SQL through the proxy
-            $dsn = 'mysql:host=localhost;port=3306;dbname=agendeseudente';
+            $dsn = 'mysql:host=localhost;port=3306;dbname=agendeseudenteco_prod';
             // Instantiate your DB using the DSN, username, and password
-            $dbUser = 'root';
-            $dbPass = '';
+            $dbUser = 'agendeseudenteco_prod';
+            $dbPass = 'SGhJGNUYgp7n';
             // conexão não existe, então cria
             try {
                 self::$instance = new PDO($dsn, $dbUser, $dbPass);

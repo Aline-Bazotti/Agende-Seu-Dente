@@ -85,10 +85,10 @@ $metodo = new Metodo();
 
             <?php
             if(isset($_GET['page'])) {
-                $pgAtual = $_GET['page'];
-                if(file_exists("site/pages/".$pgAtual.".php")) {
+                $pgAtual = $_GET['page'] . '.php';
+                if(file_exists("site/Pages/".$pgAtual)) {
                 ?><div class="container"><?php
-                    include("site/pages/".$pgAtual.".php");
+                    include("site/Pages/".$pgAtual);
                 ?></div> <!-- /container --><?php
                 } else {
                     include("site/Pages/404.php");

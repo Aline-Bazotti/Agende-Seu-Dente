@@ -62,7 +62,7 @@ create or replace TABLE `banner` (
   `data_alt` timestamp NULL DEFAULT NULL COMMENT 'Data que houve alteração no cadastro do banner',
   `botaoLink` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Banners cadastrados no site'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Banners cadastrados no site';
 
 create or replace TABLE `procedimento` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
