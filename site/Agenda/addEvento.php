@@ -18,8 +18,12 @@ if (empty($nome) || empty($data_nascimento)) {
     exit;
 }
 
-$metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone);
+try {
+    $metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone);
+}catch (Exception $e){
+    header("Location: https://$_SERVER[SERVER_NAME]/?page=agendaList&success=false");
+}
 
-header("Location: https://$_SERVER[SERVER_NAME]/?page=agendaList");
+header("Location: https://$_SERVER[SERVER_NAME]/?page=agendaList&success=true");
 ?>
 

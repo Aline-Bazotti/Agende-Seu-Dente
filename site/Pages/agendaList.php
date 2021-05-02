@@ -4,9 +4,16 @@
     <div class="question-group">
         <div class="header">
             <h4>Responda o formulário para solicitar agendamento para consulta</h4>
-        </div>
+        </div><br/>
+        <?php if(isset($_GET['success'])) {
+            $success = $_GET['success'];
+            if ($success=='true'){?>
+                <div class="alert alert-success">Sua mensagem foi enviada com sucesso!</div>
+            <?php }elseif($success==='false'){?>
+                <div class="alert alert-danger">Sua mensagem não foi enviada, mande um WhatsApp para (49) 99982-6476!</div>
+        <?php } }?>
         <div class="questions">
-            <form action="../site/Agenda/addEvento.php" method="post">
+            <form action="../agende-seu-dente/site/Agenda/addEvento.php" method="post">
                 <div class="form-group">
                     <label for="anamnese" class="col-sm-5 control-label">Nome*</label>
                     <div class="col-sm-7">
@@ -16,7 +23,7 @@
                 <div class="form-group">
                     <label for="anamnese" class="col-sm-5 control-label">CPF/CNPJ</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="cpf_cpnj" name="cpf_cpnj" placeholder="999.999.999-99">
+                        <input type="text" class="form-control" id="cpf" name="cpf_cpnj">
                     </div>
                 </div>
                 <div class="form-group">
