@@ -27,9 +27,9 @@ $grupos = $metodo->buscarGrupos();
     </div>
 
     <div>
-        <label class="desc" id="cpf_cpnj" for="Cpf_cpnj">CPF/CNPJ*</label>
+        <label class="desc"  for="Cpf_cpnj">CPF/CNPJ*</label>
         <div>
-            <input id="Cpf_cpnj" name="Cpf_cpnj" type="text" class="field text fn" value="" size="20" tabindex="1" placeholder="999.999.999-99"required="required">
+            <input id="cpf" name="Cpf_cpnj" type="text" class="field text fn" value="" size="20" tabindex="1" placeholder="999.999.999-99"required="required">
         </div>
     </div>
 
@@ -54,15 +54,15 @@ $grupos = $metodo->buscarGrupos();
     </div>
 
     <div>
-        <label class="desc" id="telefone" for="Telefone">Telefone*</label>
+        <label class="desc"  for="Telefone">Telefone*</label>
         <div>
-            <input id="Telefone" name="Telefone" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999" required="required">
+            <input id="telefone" name="Telefone" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999" required="required">
         </div>
     </div>
     <div>
-        <label class="desc" id="telefone_s" for="Telefone_s">Telefone Secundário</label>
+        <label class="desc" for="Telefone_s">Telefone Secundário</label>
         <div>
-            <input id="Telefone_s" name="Telefone_s" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999">
+            <input id="telefone_s" name="Telefone_s" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999">
         </div>
     </div>
     <br/><br/>

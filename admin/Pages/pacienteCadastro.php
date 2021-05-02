@@ -21,9 +21,9 @@
     </div>
 
     <div>
-        <label class="desc" id="cpf_cnpj" for="cpf_cnpj">CPF*</label>
+        <label class="desc" for="cpf_cnpj">CPF*</label>
         <div>
-            <input id="cpf_cnpj" name="cpf_cnpj" type="text" class="field text fn" value="" size="20" tabindex="1" placeholder="999.999.999-99"required="required">
+            <input id="cpf" name="cpf_cnpj" type="text" class="field text fn" value="" size="20" tabindex="1" placeholder="999.999.999-99"required="required">
         </div>
     </div>
 
@@ -40,13 +40,13 @@
         </div>
     </div>
     <div>
-        <label class="desc" id="telefone" for="telefone">Telefone*</label>
+        <label class="desc" for="telefone">Telefone*</label>
         <div>
             <input id="telefone" name="telefone" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999" required="required">
         </div>
     </div>
     <div>
-        <label class="desc" id="telefone_s" for="telefone_s">Telefone Secundário</label>
+        <label class="desc" for="telefone_s">Telefone Secundário</label>
         <div>
             <input id="telefone_s" name="telefone_s" type="tel" spellcheck="false" value="" maxlength="15" tabindex="3" placeholder="(99)99999-9999">
         </div>
