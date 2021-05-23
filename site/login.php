@@ -47,5 +47,14 @@
     <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 </form>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-67VS2TZSDX"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-67VS2TZSDX');
+</script>
 </body>
 </html>
