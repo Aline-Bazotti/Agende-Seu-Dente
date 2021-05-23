@@ -12,6 +12,7 @@ $desc = isset($_POST['desc']) ? $_POST['desc'] : null;
 $quanto_tempo = isset($_POST['quanto_tempo']) ? $_POST['quanto_tempo'] : null;
 $gestante = isset($_POST['gestante']) ? $_POST['gestante'] : null;
 $semanas = isset($_POST['semanas']) ? $_POST['semanas'] : null;
+$aceita_whatsapp = isset($_POST['aceita_whatsapp']) ? $_POST['aceita_whatsapp'] : null;
 
 if (empty($nome) || empty($data_nascimento)) {
     echo "Preencha todos os campos";
@@ -19,7 +20,7 @@ if (empty($nome) || empty($data_nascimento)) {
 }
 
 try {
-    $metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone);
+    $metodo->addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone,$aceita_whatsapp);
 }catch (Exception $e){
     header("Location: https://$_SERVER[SERVER_NAME]/?page=agendaList&success=false");
 }

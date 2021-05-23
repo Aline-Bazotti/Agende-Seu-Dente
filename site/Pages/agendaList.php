@@ -13,7 +13,7 @@
                 <div class="alert alert-danger">Sua mensagem não foi enviada, mande um WhatsApp para (49) 99982-6476!</div>
         <?php } }?>
         <div class="questions">
-            <form action="../agende-seu-dente/site/Agenda/addEvento.php" method="post">
+            <form action="../site/Agenda/addEvento.php" method="post">
                 <div class="form-group">
                     <label for="anamnese" class="col-sm-5 control-label">Nome*</label>
                     <div class="col-sm-7">
@@ -71,6 +71,15 @@
                 <div class="form-group">
                     <div class="col-sm-7">
                         <input type="text" class="form-control" id="semanas" name="semanas" placeholder="Quantas semanas?">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="anamnese" class="col-sm-5 control-label">Aceita marcar horário pelo WhatsApp?</label>
+                    <div class="col-sm-7">
+                        <select id="aceita_whatsapp" name="aceita_whatsapp" class="form-control">
+                            <option value="1">Sim</option>
+                            <option value="0">Não</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-12">

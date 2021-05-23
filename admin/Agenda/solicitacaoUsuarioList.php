@@ -60,6 +60,17 @@ $solicitacoes = $metodo->buscarSolicitacaoUsuario();
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
+                                    <label for="">Aceita marcar horário pelo WhatsApp?</label>
+                                    <?php
+                                    if ($solicitacao['aceita_whatsapp']==0){ ?>
+                                        <p>Não</p>
+                                    <?php } else { ?>
+                                        <p>Sim</p><?php
+                                    } ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
                                     <form action="../../admin/Agenda/marcarOuApagarHorario.php" method="post">
                                         <input id="marcar" name="marcar" hidden="hidden" value="<?= $solicitacao['id']; ?>">
                                         <button class="btn btn-sm btn-success" type="submit" ><i class="fa fa-check"></i>Marcado</button>

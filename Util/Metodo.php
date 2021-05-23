@@ -701,11 +701,11 @@ class Metodo extends Base
             echo "Erro: " . $e->getMessage();
         }
     }
-    public function addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone){
+    public function addEvento($nome,$cpf_cpnj,$data_nascimento,$dor,$desc,$quanto_tempo,$gestante,$semanas,$telefone,$aceita_whatsapp){
         try {
             $sql = $this->conexao->prepare("
-            INSERT INTO solicitacao_horario(nome, cpf_cnpj, descricao, data_nascimento, sente_dor, quanto_tempo, gravidez, gravida_sim_semanas, telefone) 
-            VALUES (:nome, :cpf_cpnj, :descricao, :data_nascimento, :dor, :quanto_tempo, :gestante, :semanas, :telefone)");
+            INSERT INTO solicitacao_horario(nome, cpf_cnpj, descricao, data_nascimento, sente_dor, quanto_tempo, gravidez, gravida_sim_semanas, telefone, aceita_whatsapp) 
+            VALUES (:nome, :cpf_cpnj, :descricao, :data_nascimento, :dor, :quanto_tempo, :gestante, :semanas, :telefone, :aceita_whatsapp)");
             $sql->execute(array(
                 ':nome'=>$nome,
                 ':cpf_cpnj' => $cpf_cpnj,
@@ -715,7 +715,8 @@ class Metodo extends Base
                 ':quanto_tempo' => $quanto_tempo,
                 ':gestante' => $gestante,
                 ':semanas' => $semanas,
-                ':telefone' => $telefone
+                ':telefone' => $telefone,
+                ':aceita_whatsapp' => $aceita_whatsapp
             ));
         }catch (PDOException $e) {
             echo "Erro: " . $e->getMessage();
