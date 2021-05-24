@@ -29,16 +29,16 @@ if (empty($id_prontuario)) {
     </div>
 
     <div>
-        <label class="desc" id="dente" for="dente">Dente</label>
+        <label class="desc" id="dente" for="dente">Dente(s)</label>
         <div>
-            <input id="dente" name="dente" type="number" class="field text fn" value="" maxlength="2" required="required">
+            <input id="dente" name="dente" type="text" class="field text fn" value="" maxlength="50">
         </div>
     </div>
 
-    <div>
+    <div class="form-group">
         <label class="desc" id="procedimento" for="procedimento">Procedimentos Realizados</label>
         <div>
-            <input id="procedimento" name="procedimento" type="text" class="field text fn" value="" size="70" tabindex="1">
+            <textarea id="procedimento" name="procedimento" type="text" class="form-control" value="" size="70" rows="3"></textarea>
         </div>
     </div>
 
